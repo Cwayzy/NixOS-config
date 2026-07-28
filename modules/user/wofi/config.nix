@@ -1,0 +1,7 @@
+{
+  mode = "drun";
+  allow_images = true;
+  image_size = 25;
+  width = "600px";
+  no_actions = true;
+}

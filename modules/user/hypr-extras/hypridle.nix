@@ -1,0 +1,32 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs;[hypridle];
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "pidof hyprlock || hyprlock";
+      };
+
+      listener = [
+        {
+          timeout = 600; # 10 minutes -> lock
+          on-timeout = "pidof hyprlock || hyprlock";
+        }
+        {
+          timeout = 900; # 15 minutes -> suspend
+          on-timeout = "/usr/bin/systemctl suspend";
+        }
+        {
+          event = "lid_close";
+          on-event = "pidof hyprlock || hyprlock";
+        }
+        {
+          event = "lid_close";
+          on-event = "pidof hyprlock || hyprlock";
+        }
+      ];
+    };
+  };
+}

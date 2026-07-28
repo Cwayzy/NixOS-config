@@ -1,0 +1,38 @@
+{ config, pkgs, home-manager, zen-browser, ...}:
+
+{
+  imports = 
+  [
+    ./modules/user/user.nix
+  ];
+
+	home.username = "kevin";
+	home.homeDirectory = "/home/kevin";
+	home.stateVersion = "26.05";
+
+	# User-specific packages
+	home.packages = with pkgs; [
+    swaybg #temporary
+	  discord
+	  steam
+	  hyprpicker
+	  hyprshot
+	  hyprpolkitagent
+	  wl-clipboard
+	  wofi
+	  pwvucontrol
+	  mako
+	  thunar
+	  blueman
+    imv
+    zathura
+	] ++ [
+	  zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+	];
+  
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
+  programs.home-manager.enable = true;
+}

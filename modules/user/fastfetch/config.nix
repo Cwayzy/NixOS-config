@@ -1,0 +1,21 @@
+{
+  modules = [
+    "title"
+    "seperator"
+    "os"
+    "host"
+    "kernel"
+    "packages"
+    "display"
+    "de"
+    "wm"
+    "terminal"
+    "cpu"
+    "gpu"
+    "memory"
+    "disk"
+    "battery"
+    "poweradapter"
+    "break"
+  ];
+}
