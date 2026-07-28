@@ -13,17 +13,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = lib.mkForce "/dev/disk/by-uuid/47d43de7-d3b4-4cdc-ae76-7ad22e1bc368";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = lib.mkForce "/dev/disk/by-uuid/535C-4137";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
