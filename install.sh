@@ -24,8 +24,8 @@ git clone "https://github.com/${GITHUB_USER}/${REPO_NAME}.git" "$TMP_DIR"
 
 # 2. Partition & Format Disk with Disko
 echo "==> Partitioning and formatting disk $TARGET_DISK..."
-nix --experimental-features "nix-command flakes" run github:nix-community/disko -- \
-  --mode disko "$TMP_DIR/disk-config.nix" --arg device "\"$TARGET_DISK\""
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- \
+  --mode disko "$TMP_DIR/disk-config.nix" --argstr device "\"$TARGET_DISK\""
 
 # 3. Transfer Dotfiles to installed location
 TARGET_DOTFILES="/mnt/home/${TARGET_USER}/.dotfiles"
