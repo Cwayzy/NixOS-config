@@ -1,9 +1,13 @@
 {
-
 	description = "NixOS Hyprland";
 
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-unstable";
+
+    disko = {
+      url = "github:nix-community/disko"
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -21,7 +25,7 @@
     };
 	};
 
-	outputs = {nixpkgs, home-manager, zen-browser, stylix, ...}:
+	outputs = {nixpkgs, disko ,home-manager, zen-browser, stylix, ...}:
     let 
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -34,7 +38,23 @@
 		nixosConfigurations.C-PC = lib.nixosSystem {
 			inherit system;
 			modules = [
-      ./configuration.nix
+        disko.nixosModules.disko
+        ./disk-config.nix
+        ./configuration.nix
+
+        ({ pkgs, ... }: {
+          boot.loader.systemd-boot.enable = true;
+          boot.loader.efi.canTouchEfiVariables;
+          networking.hostName = "C-PC";
+          networking.networkmanager.enable = true;
+
+          users.users.kevin = {
+            isNormalUser = true;
+            extraGroups = [ "wheel" "networkmanager" ];
+          };
+
+          system.stateVersion = "24.11";
+        })
       ];
 		};
 
@@ -46,7 +66,7 @@
         stylix.homeModules.stylix
         ./home.nix
         ];
-        };
       };
+    };
 	};
 }
