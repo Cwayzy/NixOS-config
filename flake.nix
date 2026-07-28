@@ -25,7 +25,7 @@
     };
 	};
 
-	outputs = {nixpkgs, disko ,home-manager, zen-browser, stylix, ...}:
+	outputs = {self, nixpkgs, disko ,home-manager, zen-browser, stylix, ...}@inputs:
     let 
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -35,25 +35,12 @@
         };
     in
   { 
-		nixosConfigurations."C-PC" = lib.nixosSystem {
+		nixosConfigurations = {
+
+      "C-PC" = lib.nixosSystem {
 			inherit system;
-			modules = [
-        disko.nixosModules.disko
-        ./disk-config.nix
-        ./configuration.nix
-
-        ({ pkgs, ... }: {
-          boot.loader.systemd-boot.enable = true;
-          boot.loader.efi.canTouchEfiVariables = true;
-          networking.hostName = "C-PC";
-          networking.networkmanager.enable = true;
-
-          users.users.kevin = {
-            isNormalUser = true;
-            extraGroups = [ "wheel" "networkmanager" ];
-          };
-        })
-      ];
+      specialArgs = { inherit inputs; };
+			modules = [ ./hosts/C-PC ];
 		};
 
     homeConfigurations = {
