@@ -9,7 +9,7 @@ fi
 
 GITHUB_USER="Cwayzy"
 REPO_NAME="NixOS-config"
-TARGET_HOST="C_PC"
+TARGET_HOST="C-PC"
 TARGET_USER="kevin"
 TARGET_DISK="${1:-/dev/sda}"
 
