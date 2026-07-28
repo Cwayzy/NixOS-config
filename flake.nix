@@ -35,7 +35,7 @@
         };
     in
   { 
-		nixosConfigurations.C-PC = lib.nixosSystem {
+		nixosConfigurations."C-PC" = lib.nixosSystem {
 			inherit system;
 			modules = [
         disko.nixosModules.disko
