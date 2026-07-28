@@ -44,7 +44,7 @@
 
         ({ pkgs, ... }: {
           boot.loader.systemd-boot.enable = true;
-          boot.loader.efi.canTouchEfiVariables;
+          boot.loader.efi.canTouchEfiVariables = true;
           networking.hostName = "C-PC";
           networking.networkmanager.enable = true;
 
