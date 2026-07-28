@@ -40,8 +40,9 @@
       "C-PC" = lib.nixosSystem {
 			inherit system;
       specialArgs = { inherit inputs; };
-			modules = [ ./hosts/C-PC ];
-		};
+			modules = [ ./hosts/C-PC/C-PC.nix ];
+		  };
+    };
 
     homeConfigurations = {
       kevin = home-manager.lib.homeManagerConfiguration {
