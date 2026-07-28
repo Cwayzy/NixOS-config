@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
+# Automatically elevate to root if not already root
+if [ "$EUID" -ne 0 ]; then
+  echo "==> Re-running installer with sudo..."
+  exec sudo "$0" "$@"
+fi
+
 GITHUB_USER="Cwayzy"
 REPO_NAME="NixOS-config"
 TARGET_HOST="C_PC"
