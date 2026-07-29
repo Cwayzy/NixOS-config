@@ -3,7 +3,7 @@
 {
   imports =
     [ 
-      ./modules/system/system.nix
+      ../../modules/system/system.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
