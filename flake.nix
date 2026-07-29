@@ -20,28 +20,35 @@
     };
 	};
 
-	outputs = {self, nixpkgs,home-manager, zen-browser, stylix, ...}@inputs:
+	outputs = {self, nixpkgs, home-manager, zen-browser, stylix, ...}@inputs:
     let 
       lib = nixpkgs.lib;
       system = "x86_64-linux";
+
       pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
         };
+
+      vars = {
+        username = "kevin";
+        hosts = [ "C-PC" "C-HP" ];
+      };
+
+      mkHost = hostName: lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs vars; };
+        modules = [ ./hosts/${hostName}/${hostName}.nix ];
+      };
+
     in
   { 
-		nixosConfigurations = {
-      "C-PC" = lib.nixosSystem {
-			inherit system;
-      specialArgs = { inherit inputs; };
-			modules = [ ./hosts/C-PC/C-PC.nix ];
-		  };
-    };
+		nixosConfigurations = lib.genAttrs vars.hosts mkHost;
 
     homeConfigurations = {
-      kevin = home-manager.lib.homeManagerConfiguration {
+      "${vars.username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit zen-browser; };
+        extraSpecialArgs = { inherit zen-browser vars; };
         modules = [ 
         stylix.homeModules.stylix
         ./home.nix

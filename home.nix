@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, zen-browser, ...}:
+{ config, pkgs, vars , zen-browser, ...}:
 
 {
   imports = 
@@ -6,8 +6,8 @@
     ./modules/user/user.nix
   ];
 
-	home.username = "kevin";
-	home.homeDirectory = "/home/kevin";
+	home.username = vars.username;
+	home.homeDirectory = "/home/${vars.username}";
 	home.stateVersion = "26.05";
 
 	# User-specific packages
