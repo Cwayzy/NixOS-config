@@ -26,11 +26,6 @@ hl.gesture({
 	action = "workspace",
 })
 
-hl.device({
-	name = "steelseries-steelseries-rival-3-wireless",
-	sensitivity = -0.5,
-})
-
 -- ENVIORMENT --
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
