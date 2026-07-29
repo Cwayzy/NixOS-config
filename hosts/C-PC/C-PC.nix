@@ -8,7 +8,7 @@
   networking.hostName = "C-PC";
 
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEftiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   services.getty.autologinUser = vars.username;
 
