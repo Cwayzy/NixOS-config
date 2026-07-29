@@ -4,11 +4,6 @@
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +20,7 @@
     };
 	};
 
-	outputs = {self, nixpkgs, disko ,home-manager, zen-browser, stylix, ...}@inputs:
+	outputs = {self, nixpkgs,home-manager, zen-browser, stylix, ...}@inputs:
     let 
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -36,7 +31,6 @@
     in
   { 
 		nixosConfigurations = {
-
       "C-PC" = lib.nixosSystem {
 			inherit system;
       specialArgs = { inherit inputs; };
