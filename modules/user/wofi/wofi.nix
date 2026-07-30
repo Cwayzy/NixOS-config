@@ -1,8 +1,16 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
+let
+  cfg = config.modules.user.wofi;
+in 
 {
-  programs.wofi = {
-    enable = true;
-    settings = import ./config.nix;
-    style = import ./style.nix;
+  options.modules.user.wofi = {
+    enable = lib.EnableOption "Enable wofi"
+  };
+  config = lib.mkIf cfg.enable {
+    programs.wofi = {
+      enable = true;
+      settings = import ./config.nix;
+      style = import ./style.nix;
+    };
   };
 }

@@ -4,21 +4,29 @@
     ./shell/shell.nix
     ./shell/term-apps.nix
     ./kitty/kitty.nix
-    ./waybar/waybar.nix
+    ./mimeapps/mimeapps.nix
+    ./fastfetch/fastfetch.nix
     ./hyprland/hyprland.nix
     ./hypr-extras/hypr-extras.nix
     ./stylix/stylix.nix
-    ./mimeapps/mimeapps.nix
+    ./waybar/waybar.nix
     ./wofi/wofi.nix
-    ./fastfetch/fastfetch.nix
     ./mako/mako.nix
     ./discord/discord.nix
   ];
 
   modules.user = {
-    discord = {
-      enable = true;
-      package = "discord";
-    };
+    shell.enable = true;
+    term-apps.enable = true;
+    kitty.enable = true;
+    mimeapps.enable = true;
+    fastfetch.enable = true;
+    hyprland.enable = true;
+    hypr-extras.enable = true;
+    stylix.enable = true;
+    waybar.enable = true;
+    wofi.enable = true;
+    mako.enable = true;
+    discord.enable = true;
   };
 }

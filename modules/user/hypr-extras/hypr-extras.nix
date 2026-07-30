@@ -1,9 +1,18 @@
-{ ... }:
+{ config, lib, ... }:
+let
+  cfg = config.modules.user.hypr-extras;
+in 
 {
-  imports = [
-    ./hypridle.nix
-    ./hyprlock.nix
-    #./hyprpaper.nix
-    ./files.nix
-  ];
-}
+  options.modules.user.hypr-extras = {
+    enable = mkEnableOption "Enable hypr-extras"
+  };
+
+  config = mkIf cfg.enable {
+    imports = [
+      ./hypridle.nix
+      ./hyprlock.nix
+      #./hyprpaper.nix
+      ./files.nix
+    ];
+  };
+ }

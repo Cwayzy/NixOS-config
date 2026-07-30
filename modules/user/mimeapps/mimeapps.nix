@@ -1,24 +1,33 @@
-{ ... }:
+{ config, lib, ... }:
+let
+  cfg = config.modules.user.mimeapps;
+in
 {
-  xdg.mimeApps = {
-    enable = true;
+  options.modules.user.mimeapps = {
+    enable = mkEnableOption "Enable mimeapps";
+  };
 
-    defaultApplications = {
-      "text/html" = "zen-beta.desktop";
-      "x-scheme-handler/http" = "zen-beta.desktop";
-      "x-scheme-handler/https" = "zen-beta.desktop";
-      "x-scheme-handler/about" = "zen-beta.desktop";
-      "x-scheme-handler/unknown" = "zen-beta.desktop";
+  config = mkIf cfg.enable {
+    xdg.mimeApps = {
+      enable = true;
 
-      "image/png" = "imv.desktop";
-      "image/jpeg" = "imv.desktop";
+      defaultApplications = {
+        "text/html" = "zen-beta.desktop";
+        "x-scheme-handler/http" = "zen-beta.desktop";
+        "x-scheme-handler/https" = "zen-beta.desktop";
+        "x-scheme-handler/about" = "zen-beta.desktop";
+        "x-scheme-handler/unknown" = "zen-beta.desktop";
 
-      "application/pdf" = "org.pwmt.zathura.desktop";
+        "image/png" = "imv.desktop";
+        "image/jpeg" = "imv.desktop";
 
-      "inode/directory" = "thunar.desktop";
+        "application/pdf" = "org.pwmt.zathura.desktop";
 
-      "video/mp4" = "mpv.desktop";
-      "video/x-matroska" = "mpv.desktop";
+        "inode/directory" = "thunar.desktop";
+
+        "video/mp4" = "mpv.desktop";
+        "video/x-matroska" = "mpv.desktop";
+      };
     };
   };
 }
