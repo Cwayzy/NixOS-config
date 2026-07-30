@@ -13,6 +13,7 @@
     ./wofi/wofi.nix
     ./mako/mako.nix
     ./discord/discord.nix
+    ./zen/zen.nix
   ];
 
   modules.user = {
@@ -31,5 +32,6 @@
     wofi.enable = true;
     mako.enable = true;
     discord.enable = true;
+    zen.enable = true;
   };
 }

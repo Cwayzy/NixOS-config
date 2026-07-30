@@ -28,6 +28,7 @@ in
       yazi
       zathura
       zip unzip
+      zenity
     ];
   };
 }
