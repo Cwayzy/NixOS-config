@@ -18,7 +18,7 @@ in
       autoInstall = lib.mkOption {
         type = lib.type.bool;
         default = true;
-        description = "Automatically run betterdiscordctl"
+        description = "Automatically run betterdiscordctl";
       };
 
       pluginsDir = lib.mkOption {

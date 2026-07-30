@@ -13,7 +13,6 @@
 	# User-specific packages
 	home.packages = with pkgs; [
     swaybg #temporary
-	  discord
 	  steam
 	  hyprpicker
 	  hyprshot
