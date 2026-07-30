@@ -3,7 +3,7 @@ let
   cfg = config.modules.user.discord;
 in 
 {
-  options.modules.user.discord {
+  options.modules.user.discord = {
     enable = lib.mkEnableOption "Enable discord";
 
     package = lib.mkOption {
@@ -35,7 +35,7 @@ in
     };
   };
 
-  config ) lib.mkIf cfg.enable (lib.merge [
+  config = lib.mkIf cfg.enable (lib.Merge [
     {
       home.packages = with pkgs;
         [ (if cfg.package == "vesktop" then vesktop else pkgs.${cfg.package}) ]
