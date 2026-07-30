@@ -9,7 +9,7 @@
   modules.system = {
     sddm = {
       enable = true;
-      autolign = true;
+      autologin = true;
     };
     mount.enable = true;
     bluetooth.enable = true;
