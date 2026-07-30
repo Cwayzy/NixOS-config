@@ -18,7 +18,7 @@ in
 
     programs.gamemode.enable = true;
 
-    enviroment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       heroic
       gamescope
       protonup-qt
