@@ -19,12 +19,6 @@
     discord = {
       enable = true;
       package = "discord";
-
-      betterdiscord = {
-        enable = true;
-        pluginsDir = ./discord/plugins;
-        themesDir = ./discord/themes;
-      };
     };
   };
 }
