@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 let
   cfg = config.modules.user.zen;
-  addons = inputs.firefox-addons.packages.${pkgs.system};
+  addons = inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   imports = [
