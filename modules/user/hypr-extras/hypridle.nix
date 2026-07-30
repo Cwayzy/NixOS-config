@@ -2,14 +2,15 @@
 let
   parentCfg = config.modules.user.hypr-extras;
 
-  cfg = modules.user.hypr-extras;
+  cfg = config.modules.user.hypr-extras;
 in 
 {
   options.modules.user.hypr-extras.hypridle = {
-    enable = lib.mkOption;
+    enable = lib.mkOption {
     type = lib.types.bool;
     default = parentCfg;
-    description = "Enable hypridle"
+    description = "Enable hypridle";
+    };
   };
 
   config = lib.mkIf cfg.enable {

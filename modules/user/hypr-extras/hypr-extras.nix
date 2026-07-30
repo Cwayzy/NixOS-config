@@ -8,7 +8,7 @@ in
     ./hyprlock.nix
     ./hyprpaper.nix
     ./files.nix
-  ]
+  ];
 
   options.modules.user.hypr-extras = {
     enable = lib.mkEnableOption "Enable hypr-extras";

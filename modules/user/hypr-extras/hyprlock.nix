@@ -7,10 +7,11 @@ in
 {
   
   options.modules.user.hypr-extras.hyprlock = {
-    enable = lib.mkOption;
+    enable = lib.mkOption {
     type = lib.types.bool;
     default = parentCfg;
-    description = "Enable hyprlock"
+    description = "Enable hyprlock";
+    };
   };
   
   config = lib.mkIf cfg.enable {

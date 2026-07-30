@@ -6,10 +6,11 @@ let
 in 
 {
   options.modules.user.hypr-extras.hyprpaper = {
-    enable = lib.mkOption;
+    enable = lib.mkOption {
     type = lib.types.bool;
     default = parentCfg;
-    description = "Enable hyprpaper"
+    description = "Enable hyprpaper";
+    };
   };
 
   config = lib.mkIf cfg.enable {
