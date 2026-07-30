@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.initrd.systemd.enable = true;
 
   fileSystems."/" =
     { device = "/dev/mapper/cryptroot";
@@ -19,7 +20,10 @@
       options = [ "subvol=@" ];
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/421ce9fa-228a-4fce-b56e-d01f85c7ac40";
+  boot.initrd.luks.devices."cryptroot" = {
+    device = "/dev/disk/by-uuid/421ce9fa-228a-4fce-b56e-d01f85c7ac40";
+    crypttabExtraOpts = [ "tpm2-device=auto" "tpm2-measure-pcr=yes" ];
+  };
 
   fileSystems."/var/log" =
     { device = "/dev/mapper/cryptroot";
@@ -51,7 +55,9 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [ ];
+  swapDevices = [{
+    device = "/swap/swapfile";
+  }];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
