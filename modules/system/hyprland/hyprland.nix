@@ -3,7 +3,7 @@ let
   cfg = config.modules.system.hyprland;
 in 
 {
-  options.modules.hyprland = {
+  options.modules.system.hyprland = {
     enable = lib.mkEnableOption "Hyprland window manager";
 
     withUWSM = lib.mkOption {
