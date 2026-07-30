@@ -6,7 +6,7 @@ let
 in 
 {
   options.modules.user.hypr-extras.hyprpicker = {
-    enable = mkOption {
+    enable = lib.mkOption {
       type = lib.types.bool;
       default = parentCfg.enable;
       description = "Enable hyprpicker";

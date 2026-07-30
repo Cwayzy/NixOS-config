@@ -14,8 +14,6 @@
 	home.packages = with pkgs; [
     swaybg #temporary
 	  steam
-	  hyprpicker
-	  hyprshot
 	  hyprpolkitagent
 	  wl-clipboard
 	  wofi
