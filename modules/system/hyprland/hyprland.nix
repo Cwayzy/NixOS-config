@@ -4,12 +4,12 @@ let
 in 
 {
   options.modules.system.hyprland = {
-    enable = lib.mkEnableOption "Hyprland window manager";
+    enable = lib.mkEnableOption "Enable hyprland";
 
     withUWSM = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Launch Hyprland via UWSM for proper systemd session integration.";
+      description = "Launch Hyprland via UWSM";
     };
   };
 

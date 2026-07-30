@@ -10,7 +10,7 @@
   modules.system = {
     sddm = {
       enable = true;
-      autologin = false;
+      autologin = true;
     };
 
     mount.enable = true;
