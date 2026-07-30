@@ -4,7 +4,7 @@ let
 in 
 {
   options.modules.system.greetd = {
-    enable = lib.mkeEnableOption "greetd login manager with tuigreet"
+    enable = lib.mkEnableOption "greetd login manager with tuigreet";
 
     command = lib.mkOption {
       type = lib.types.str;

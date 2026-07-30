@@ -18,7 +18,7 @@ in
     enable = lib.mkEnableOption "NFS mounts over tailscale";
   };
 
-  config = lib.mkIf cfg.enable = {
+  config = lib.mkIf cfg.enable {
     fileSystems."/mnt/mods" = {
     device = "192.168.88.10:/volume1/mods";
     fsType = "nfs";
