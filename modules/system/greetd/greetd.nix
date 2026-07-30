@@ -8,7 +8,7 @@ in
 
     command = lib.mkOption {
       type = lib.types.str;
-      default = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd Hyprland";
+      default = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd Hyprland";
       description = "Command greetd runs to launch the session";
     };
   };
