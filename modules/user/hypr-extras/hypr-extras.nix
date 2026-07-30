@@ -7,6 +7,7 @@ in
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprshot.nix
+    ./hyprpolkitagent.nix
     ./hyprpicker.nix
     ./hyprpaper.nix
     ./files.nix
