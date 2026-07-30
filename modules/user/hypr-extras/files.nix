@@ -8,7 +8,7 @@ in
   options.modules.user.hypr-extras.files = {
     enable = lib.mkOption {
       type = lib.types.bool;
-      default = parentCfg;
+      default = parentCfg.enable;
       description = "Enable extra files";
     };
   };

@@ -22,7 +22,10 @@
     mimeapps.enable = true;
     fastfetch.enable = true;
     hyprland.enable = true;
-    hypr-extras.enable = true;
+    hypr-extras = {
+      enable = true;
+        hyprpaper.enable = false;
+    };
     stylix.enable = true;
     waybar.enable = true;
     wofi.enable = true;
