@@ -3,7 +3,7 @@ let
   cfg = config.modules.system.sddm;
 in 
 {
-  options.modules.system.greetd = {
+  options.modules.system.sddm = {
     enable = lib.mkEnableOption "SDDM display manager";
 
     autologin = lib.mkEnableOption "SDDM autologin";
