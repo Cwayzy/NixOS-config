@@ -4,10 +4,10 @@ let
 in
 {
   options.modules.user.mimeapps = {
-    enable = mkEnableOption "Enable mimeapps";
+    enable = lib.mkEnableOption "Enable mimeapps";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     xdg.mimeApps = {
       enable = true;
 

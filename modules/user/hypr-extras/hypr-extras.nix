@@ -4,10 +4,10 @@ let
 in 
 {
   options.modules.user.hypr-extras = {
-    enable = mkEnableOption "Enable hypr-extras"
+    enable = lib.mkEnableOption "Enable hypr-extras";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     imports = [
       ./hypridle.nix
       ./hyprlock.nix

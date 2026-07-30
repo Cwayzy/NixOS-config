@@ -4,10 +4,10 @@ let
 in 
 {
   options.modules.user.hyprland = {
-    enable = mkEnableOption "enable hyprland";
+    enable = lib.mkEnableOption "enable hyprland";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "lua";

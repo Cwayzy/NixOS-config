@@ -1,13 +1,13 @@
-{ config, lib  ... }:
+{ config, lib, ... }:
 let
   cfg = config.modules.user.shell;
 in 
 {
   options.modules.user.shell = {
-    enable = mkEnableOption "Enable shell";
+    enable = lib.mkEnableOption "Enable shell";
   };
 
-  config = lib.mkIf cfg.enable {}
+  config = lib.mkIf cfg.enable {
     programs.bash = {
       enable = true;
       shellAliases = {

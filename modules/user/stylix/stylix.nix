@@ -4,10 +4,10 @@ let
 in 
 {
   options.modules.user.stylix = {
-    enable = mkEnableOption "Enable stylix";
+    enable = lib.mkEnableOption "Enable stylix";
   };
 
-  config = mkIf cfg.enable = {
+  config = lib.mkIf cfg.enable {
     stylix = {
       enable = true;
       polarity = "dark";
