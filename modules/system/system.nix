@@ -5,6 +5,7 @@
     ./mount/mount.nix
     ./hyprland/hyprland.nix
     ./bluetooth/bluetooth.nix
+    ./gaming/gaming.nix
   ];
 
   modules.system = {
@@ -16,5 +17,6 @@
     mount.enable = true;
     hyprland.enable = true;
     bluetooth.enable = true;
+    gaming.enable = true;
   };
 }
