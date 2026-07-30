@@ -9,9 +9,8 @@
   modules.system = {
     sddm = {
       enable = true;
-      autologin = true;
+      autolign = true;
     };
-
     mount.enable = true;
     bluetooth.enable = true;
   };
