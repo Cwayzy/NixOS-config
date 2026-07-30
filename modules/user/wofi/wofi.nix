@@ -4,8 +4,9 @@ let
 in 
 {
   options.modules.user.wofi = {
-    enable = lib.EnableOption "Enable wofi"
+    enable = lib.mkEnableOption "Enable wofi";
   };
+
   config = lib.mkIf cfg.enable {
     programs.wofi = {
       enable = true;
