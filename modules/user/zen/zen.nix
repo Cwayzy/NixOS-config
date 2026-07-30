@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 let
   cfg = config.modules.user.zen;
+  addons = inputs.firefox-addons.packages.${pkgs.system};
 in
 {
   imports = [
@@ -12,6 +13,13 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = [
+      addons.bitwarden
+      addons.ublock-origin
+      addons.sponsorblock
+      addons.seventv
+    ];
+
     programs.zen-browser = {
       enable = true;
       setAsDefaultBrowser = true;
@@ -20,28 +28,6 @@ in
         DisableTelemetry = true;
         DisableFireFoxStudies = true;
         DisablePocket = true;
-
-        ExtensionSettings = {
-          "uBlock0@raymondhill.net" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-            installation_mode = "force_installed";
-          };
-
-          "sponsorBlocker@ajay.app" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
-            installation_mode = "force_installed";
-          };
-
-          "firefox@betterttv.net" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/hummingbird-for-betterttv/latest.xpi";
-            installation_mode = "force_installed";
-          };
-
-          "7tv@7tv.app" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/7tv/latest.xpi";
-            installation_mode = "force_installed";
-          };
-        };
       };
 
       profiles.default = {
