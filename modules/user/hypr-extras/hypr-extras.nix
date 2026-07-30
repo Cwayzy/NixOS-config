@@ -6,6 +6,8 @@ in
   imports = [
     ./hypridle.nix
     ./hyprlock.nix
+    ./hyprshot.nix
+    ./hyprpicker.nix
     ./hyprpaper.nix
     ./files.nix
   ];

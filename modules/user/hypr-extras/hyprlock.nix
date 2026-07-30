@@ -2,7 +2,7 @@
 let
   parentCfg = config.modules.user.hypr-extras;
 
-  cfg = config.modules.user.hypr-extras;
+  cfg = config.modules.user.hypr-extras.hyprlock;
 in 
 {
   

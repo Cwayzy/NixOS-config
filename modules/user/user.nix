@@ -24,7 +24,7 @@
     hyprland.enable = true;
     hypr-extras = {
       enable = true;
-        hyprpaper.enable = false;
+        hypridle.enable = false;
     };
     stylix.enable = true;
     waybar.enable = true;
