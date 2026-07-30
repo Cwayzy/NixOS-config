@@ -3,15 +3,18 @@
   imports = [
     ./sddm/sddm.nix
     ./mount/mount.nix
+    ./hyprland/hyprland.nix
     ./bluetooth/bluetooth.nix
   ];
 
   modules.system = {
     sddm = {
       enable = true;
-      autologin = true;
+      autologin = false;
     };
+
     mount.enable = true;
+    hyprland.enable = true;
     bluetooth.enable = true;
   };
 }
