@@ -1,0 +1,16 @@
+{
+    "settings": {
+        "normalDoubleClickAction": "REPLY",
+        "shiftDoubleClickAction": "EDIT",
+        "ctrlDoubleClickAction": "REACT",
+        "delDoubleClickAction": "DELETE",
+        "selectedGuildForReaction": "150940798974820352",
+        "doubleClickEmoji": {
+            "id": null,
+            "name": "😭",
+            "animated": false
+        },
+        "shouldEmojiBurst": false,
+        "textOverride": true
+    }
+}

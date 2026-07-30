@@ -1,0 +1,65 @@
+{
+    "settings": {
+        "tabs": [
+            {
+                "name": "#hard-core-gaming",
+                "url": "/channels/1320467029295108106/1479638158605025522",
+                "selected": true,
+                "currentStatus": "none",
+                "channelId": "1479638158605025522"
+            }
+        ],
+        "favs": [
+            {
+                "name": "Random Stuff",
+                "url": "/channels/1026602549983314012",
+                "guildId": "1026602549983314012",
+                "groupId": -1,
+                "minimized": true
+            },
+            {
+                "name": "ShoX",
+                "url": "/channels/@me/1144715986029772871",
+                "channelId": "1144715986029772871",
+                "groupId": -1,
+                "minimized": true
+            },
+            {
+                "name": "Robin",
+                "url": "/channels/@me/1157604863333638206",
+                "channelId": "1157604863333638206",
+                "groupId": -1,
+                "minimized": true
+            }
+        ],
+        "favGroups": [],
+        "showTabBar": false,
+        "showFavBar": true,
+        "reopenLastChannel": false,
+        "showFavUnreadBadges": true,
+        "showFavMentionBadges": true,
+        "showFavTypingBadge": true,
+        "showEmptyFavBadges": false,
+        "showTabUnreadBadges": true,
+        "showTabMentionBadges": true,
+        "showTabTypingBadge": true,
+        "showEmptyTabBadges": false,
+        "showActiveTabUnreadBadges": false,
+        "showActiveTabMentionBadges": false,
+        "showActiveTabTypingBadge": false,
+        "showEmptyActiveTabBadges": false,
+        "compactStyle": true,
+        "privacyMode": false,
+        "radialStatusMode": true,
+        "tabWidthMin": 100,
+        "showFavGroupUnreadBadges": true,
+        "showFavGroupMentionBadges": true,
+        "showFavGroupTypingBadge": true,
+        "showEmptyFavGroupBadges": false,
+        "showQuickSettings": true,
+        "showNavButtons": true,
+        "alwaysFocusNewTabs": false,
+        "useStandardNav": true,
+        "wrapTabs": false
+    }
+}
