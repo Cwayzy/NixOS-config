@@ -12,13 +12,13 @@ in
   config = lib.mkIf cfg.enable {
     services.displayManager.sddm = {
       enable = true;
-      wayland.enable;
+      wayland.enable = true;
     };
 
-    services.displayManager.autoLogin = lib mkIf cfg.autologin {
+    services.displayManager.autoLogin = lib.mkIf cfg.autologin {
       enable = true;
       user = vars.username;
-    }
+    };
 
     services.displayManager.defaultSession = lib.mkIf cfg.autologin "hyprland";
   };
