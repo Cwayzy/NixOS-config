@@ -1,6 +1,8 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 let
+  cfg = config.modules.system.mount;
+
   commonOptions = [
   "vers=4"
   "_netdev"
@@ -12,9 +14,15 @@ let
   ];
 in
 {
-  fileSystems."/mnt/mods" = {
-  device = "192.168.88.10:/volume1/mods";
-  fsType = "nfs";
-  options = commonOptions;
+  options.modules.system.mount = {
+    enable = lib.mkEnableOption "NFS mounts over tailscale";
+  };
+
+  config = lib.mkIf cfg.enable = {
+    fileSystems."/mnt/mods" = {
+    device = "192.168.88.10:/volume1/mods";
+    fsType = "nfs";
+    options = commonOptions;
+    };
   };
 }
