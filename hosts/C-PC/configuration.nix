@@ -22,11 +22,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   services.pipewire = {
      enable = true;
      wireplumber.enable = true;
