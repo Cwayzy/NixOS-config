@@ -20,7 +20,7 @@
     };
 	};
 
-	outputs = {self, nixpkgs, home-manager, zen-browser, stylix, ...}@inputs:
+	outputs = {self, nixpkgs, home-manager, stylix, ...}@inputs:
     let 
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -48,7 +48,7 @@
     homeConfigurations = {
       "${vars.username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit zen-browser vars; };
+        extraSpecialArgs = { inherit inputs vars; };
         modules = [ 
         stylix.homeModules.stylix
         ./home.nix

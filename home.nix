@@ -1,4 +1,4 @@
-{ config, pkgs, vars , zen-browser, ...}:
+{ config, pkgs, vars, inputs, ...}:
 
 {
   imports = 
@@ -11,11 +11,8 @@
 	home.stateVersion = "26.05";
 
 	# User-specific packages
-	home.packages = with pkgs; [
-	] ++ [
-	  zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-	];
-  
+	home.packages = with pkgs; [];
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };

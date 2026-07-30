@@ -1,10 +1,10 @@
 { config, lib, pkgs, inputs, ... }:
 let
-  cfg config.modules.user.zen;
+  cfg = config.modules.user.zen;
 in
 {
   imports = [
-    inputs.zen-browser.homeModules.beta;
+    inputs.zen-browser.homeModules.beta
   ];
 
   options.modules.user.zen = {
@@ -12,7 +12,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.zen-browser {
+    programs.zen-browser = {
       enable = true;
       setAsDefaultBrowser = true;
 
