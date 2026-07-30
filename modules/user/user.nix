@@ -12,5 +12,19 @@
     ./wofi/wofi.nix
     ./fastfetch/fastfetch.nix
     ./mako/mako.nix
+    ./discord/discord.nix
   ];
+
+  modules.user = {
+    discord = {
+      enable = true;
+      package = "discord";
+
+      betterdiscord = {
+        enable = true;
+        pluginsDir = ./discord/plugins;
+        themesDir = ./discord/themes;
+      };
+    };
+  };
 }
