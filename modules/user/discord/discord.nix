@@ -7,7 +7,7 @@ in
     enable = lib.mkEnableOption "Enable discord";
 
     package = lib.mkOption {
-      type = [ "discord" "discord-canary" "discord-ptb" "vesktop" ];
+      type = lib.types.enum [ "discord" "discord-canary" "discord-ptb" "vesktop" ];
       default = "discord";
       description = "Which Discord client variant to install.";
     };
@@ -16,7 +16,7 @@ in
       enable = lib.mkEnableOption "Enable BetterDiscord";
 
       autoInstall = lib.mkOption {
-        type = lib.type.bool;
+        type = lib.types.bool;
         default = true;
         description = "Automatically run betterdiscordctl";
       };
@@ -35,7 +35,7 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable (lib.Merge [
+  config = lib.mkIf cfg.enable (lib.mkMerge [
     {
       home.packages = with pkgs;
         [ (if cfg.package == "vesktop" then vesktop else pkgs.${cfg.package}) ]
