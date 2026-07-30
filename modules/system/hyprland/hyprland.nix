@@ -7,7 +7,7 @@ in
     enable = lib.mkEnableOption "Hyprland window manager"
 
     withUWSM = lib.mkOption {
-      type = lib.type.bool;
+      type = lib.types.bool;
       default = true;
       description = "Launch Hyprland via UWSM for proper systemd session integration.";
     };
