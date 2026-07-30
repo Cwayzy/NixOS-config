@@ -4,7 +4,7 @@ let
 in 
 {
   options.modules.hyprland = {
-    enable = lib.mkEnableOption "Hyprland window manager"
+    enable = lib.mkEnableOption "Hyprland window manager";
 
     withUWSM = lib.mkOption {
       type = lib.types.bool;
