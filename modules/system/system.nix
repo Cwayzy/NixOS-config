@@ -1,13 +1,17 @@
 { ... }:
 {
   imports = [
-    ./bluetooth/bluetooth.nix
+    ./sddm/sddm.nix
     ./mount/mount.nix
-    ./greetd/greetd.nix
+    ./bluetooth/bluetooth.nix
   ];
 
   modules.system = {
-    greetd.enable = true;
+    sddm = {
+      enable = true;
+      autologin = true;
+    };
+
     mount.enable = true;
     bluetooth.enable = true;
   };

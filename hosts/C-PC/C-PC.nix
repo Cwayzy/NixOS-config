@@ -10,8 +10,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.getty.autologinUser = vars.username;
-
   users.users.${vars.username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
