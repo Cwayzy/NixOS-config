@@ -1,10 +1,21 @@
 { config, lib, pkgs, stylix, ... }:
 
 {
-  imports =
-    [ 
-      ../../modules/system/system.nix
-    ];
+  imports = [ 
+    ../../modules/system/system.nix
+  ];
+
+  modules.system = {
+    sddm = {
+      enable = true;
+      autologin = true;
+    };
+
+    mount.enable = true;
+    hyprland.enable = true;
+    bluetooth.enable = true;
+    gaming.enable = false;
+  }; 
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "nfs"];

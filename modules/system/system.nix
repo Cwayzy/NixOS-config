@@ -7,16 +7,4 @@
     ./bluetooth/bluetooth.nix
     ./gaming/gaming.nix
   ];
-
-  modules.system = {
-    sddm = {
-      enable = true;
-      autologin = true;
-    };
-
-    mount.enable = true;
-    hyprland.enable = true;
-    bluetooth.enable = true;
-    gaming.enable = true;
-  };
 }
