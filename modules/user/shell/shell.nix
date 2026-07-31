@@ -18,9 +18,9 @@ in
         zen-browser = "zen-beta";
         conf = "cd $HOME/.config/hypr";
         nconf = "cd /home/kevin/.dotfiles/";
-        update = "sudo nixos-rebuild switch --flake $HOME/.dotfiles#C-HP";
-        hupdate = "home-manager switch --flake $HOME/.dotfiles#kevin";
-        upgrade = "cd $HOME/.dotfiles/ && nix flake update && sudo nixos-rebuild switch --flake $HOME/.dotfiles#C-PC";
+        update = "sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
+        hupdate = "home-manager switch --flake $HOME/.dotfiles#$(whoami)@$(hostname)";
+        upgrade = "cd $HOME/.dotfiles/ && nix flake update && sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
       };
       profileExtra = ''
         if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
