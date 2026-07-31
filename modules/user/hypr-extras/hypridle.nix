@@ -33,12 +33,16 @@ in
             on-timeout = "/usr/bin/systemctl suspend";
           }
 	  {
-            timeout = 180; # 30 minutes -> hibernate
+            timeout = 1800; # 30 minutes -> hibernate
             on-timeout = "/usr/bin/systemctl hibernate";
           }
+	  {
+	    event = "lid_close";
+	    on-event = "pidof hyprlock || hyprlock";
+	  }
           {
             event = "lid_open";
-            on-event = hyprctl dispatch 'hl.dsp.dpms({ action = "on" })';
+            on-event = "hyprctl dispatch 'hl.dsp.dpms({ action = on })'";
           }
         ];
       };
