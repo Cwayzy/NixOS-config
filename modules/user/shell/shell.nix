@@ -19,7 +19,7 @@ in
         hc = "cd $HOME/.config/hypr";
         nc = "cd $HOME/.dotfiles/";
         nrs = "sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
-        hrs = "home-manager switch --flake $HOME/.dotfiles#$(whoami)@$(hostname)";
+        hms = "home-manager switch --flake $HOME/.dotfiles#$(whoami)";
         upgrade = "cd $HOME/.dotfiles/ && nix flake update && sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
       };
     };
