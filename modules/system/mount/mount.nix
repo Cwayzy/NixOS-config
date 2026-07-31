@@ -20,9 +20,27 @@ in
 
   config = lib.mkIf cfg.enable {
     fileSystems."/mnt/mods" = {
-    device = "192.168.88.10:/volume1/mods";
-    fsType = "nfs";
-    options = commonOptions;
+      device = "c-213j:/volume1/mods";
+      fsType = "nfs";
+      options = commonOptions;
+    };
+
+    fileSystems."/mnt/tesk" = {
+      device = "c-213j:/volume1/kogudus";
+      fsType = "nfs";
+      options = commonOptions;
+    };
+
+    fileSystems."/mnt/kevin" = {
+      device = "c-213j:/volume1/kevin";
+      fsType = "nfs";
+      options = commonOptions;
+    };
+
+    fileSystems."/mnt/backup" = {
+      device = "c-213j:/volume1/backup";
+      fsType = "nfs";
+      options = commonOptions;
     };
   };
 }
