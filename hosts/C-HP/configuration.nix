@@ -50,6 +50,7 @@
      font-awesome
      wget
      gcc
+     networkmanagerapplet
    ];
 
   security.pam.services.hyprlock = {};
