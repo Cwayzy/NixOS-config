@@ -13,20 +13,15 @@ in
       shellAliases = {
         n = "nvim";
         sn = "sudo nvim";
-        umod = "cd /home/kevin/.dotfiles/modules/user";
-        smod = "cd /home/kevin/.dotfiles/modules/system";
+        um = "cd $HOME/.dotfiles/modules/user";
+        sm = "cd $HOME/.dotfiles/modules/system";
         zen-browser = "zen-beta";
-        conf = "cd $HOME/.config/hypr";
-        nconf = "cd /home/kevin/.dotfiles/";
-        update = "sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
-        hupdate = "home-manager switch --flake $HOME/.dotfiles#$(whoami)@$(hostname)";
+        hc = "cd $HOME/.config/hypr";
+        nc = "cd $HOME/.dotfiles/";
+        nrs = "sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
+        hrs = "home-manager switch --flake $HOME/.dotfiles#$(whoami)@$(hostname)";
         upgrade = "cd $HOME/.dotfiles/ && nix flake update && sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
       };
-      profileExtra = ''
-        if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-          exec start-hyprland
-        fi
-      '';
     };
   };
 }
