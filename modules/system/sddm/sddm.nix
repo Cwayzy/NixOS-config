@@ -20,6 +20,6 @@ in
       user = vars.username;
     };
 
-    services.displayManager.defaultSession = lib.mkIf cfg.autologin "hyprland-uwsm";
+    services.displayManager.defaultSession = lib.mkIf cfg.autologin "hyprland";
   };
 }

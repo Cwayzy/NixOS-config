@@ -15,10 +15,15 @@
 
   users.users.${vars.username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "render" ];
     packages = with pkgs; [
       tree
     ];
+  };
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   system.stateVersion = "26.05";
