@@ -3,7 +3,7 @@
 -- ALIASES --
 local terminal = "kitty"
 local fileManager = "thunar"
-local browser = "zen-beta"
+local browser = "brave"
 local menu = "wofi --show drun"
 local capture = "hyprshot -m region --freeze --clipboard-only"
 local clip = "pkill -SIGUSR1 -f gpu-screen-recorder"

@@ -11,6 +11,7 @@
       autologin = true;
     };
 
+    security.enable = true;
     fingerprint.enable = true;
     mount.enable = true;
     hyprland.enable = true;
@@ -43,6 +44,7 @@
   };
 
    environment.systemPackages = with pkgs; [
+     brave
      neovim
      killall
      alsa-plugins
@@ -54,7 +56,6 @@
      networkmanagerapplet
    ];
 
-  security.pam.services.hyprlock = {};
   programs.nix-ld.enable = true; 
       
   fonts.packages = with pkgs; [

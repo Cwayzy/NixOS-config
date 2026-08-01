@@ -24,7 +24,7 @@ hl.workspace_rule({ workspace = "4", monitor = philips })
 hl.workspace_rule({
 	workspace = "special:discord",
 	layout = "master",
-	on_created_empty = "discord & sleep 5 && zen-browser",
+	on_created_empty = "discord & sleep 5 && brave",
 })
 
 -- APPLICATION RULES --

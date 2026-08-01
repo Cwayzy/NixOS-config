@@ -14,6 +14,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.hyprpolkitagent ];
+    services.hyprpolkitagent.enable = true;
   };
 }

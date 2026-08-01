@@ -28,18 +28,14 @@ in
             timeout = 600; # 10 minutes -> lock
             on-timeout = "pidof hyprlock || hyprlock";
           }
-          {
-            timeout = 900; # 15 minutes -> suspend
-            on-timeout = "/usr/bin/systemctl suspend";
-          }
-	  {
-            timeout = 1800; # 30 minutes -> hibernate
+	        {
+            timeout = 900; # 15 minutes -> hibernate
             on-timeout = "/usr/bin/systemctl hibernate";
           }
-	  {
-	    event = "lid_close";
-	    on-event = "pidof hyprlock || hyprlock";
-	  }
+	        {
+	          event = "lid_close";
+	          on-event = "pidof hyprlock || hyprlock";
+	        }
           {
             event = "lid_open";
             on-event = "hyprctl dispatch 'hl.dsp.dpms({ action = on })'";

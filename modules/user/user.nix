@@ -31,7 +31,10 @@
     waybar.enable = true;
     wofi.enable = true;
     mako.enable = true;
-    discord.enable = true;
-    zen.enable = true;
+    discord ={
+      enable = true;
+      withVencord = true;
+    };
+    zen.enable = false;
   };
 }

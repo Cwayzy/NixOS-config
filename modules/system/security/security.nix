@@ -10,9 +10,5 @@ in
   config = lib.mkIf cfg.enable {
     security.pam.services.hyprlock = {};
     security.polkit.enable = true;
-
-    enviorment.systemPackages = with pkgs; [
-      hyprpolkitagent
-    ];
-  }
+  };
 }
