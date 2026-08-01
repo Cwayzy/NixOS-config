@@ -11,6 +11,7 @@
       autologin = true;
     };
 
+    fingerprint.enable = true;
     mount.enable = true;
     hyprland.enable = true;
     bluetooth.enable = true;
