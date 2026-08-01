@@ -14,6 +14,7 @@
     ./mako/mako.nix
     ./discord/discord.nix
     ./zen/zen.nix
+    ./openlp/openlp.nix
   ];
 
   modules.user = {
@@ -36,5 +37,6 @@
       withVencord = true;
     };
     zen.enable = false;
+    openlp.enable = true;
   };
 }
