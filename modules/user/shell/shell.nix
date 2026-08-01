@@ -16,6 +16,8 @@ in
         um = "cd $HOME/.dotfiles/modules/user";
         sm = "cd $HOME/.dotfiles/modules/system";
         zen-browser = "zen-beta";
+        hp = "cd /$HOME/.dotfiles/hosts/C-HP";
+        pc = "cd /$HOME/.dotfiles/hosts/C-PC";
         hc = "cd $HOME/.config/hypr";
         nc = "cd $HOME/.dotfiles/";
         nrs = "sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
