@@ -8,5 +8,6 @@
     ./hyprland/hyprland.nix
     ./bluetooth/bluetooth.nix
     ./gaming/gaming.nix
+    ./flatpak/flatpak.nix
   ];
 }
