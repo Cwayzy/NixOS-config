@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.modules.user.openlp;
+  cfg = config.modules.system.openlp;
 in
 {
-  options.modules.apps.openlp = {
+  options.modules.system.openlp = {
     enable = lib.mkEnableOption "OpenLP via Flatpak";
   };
 

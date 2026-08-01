@@ -18,6 +18,7 @@
     bluetooth.enable = true;
     gaming.enable = false;
     flatpak.enable = true;
+    openlp.enable = true;
   }; 
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
