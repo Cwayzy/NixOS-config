@@ -4,20 +4,10 @@
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-		zen-browser = {
-			url = "github:0xc000022070/zen-browser-flake";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 
     stylix = {
       url = "github:danth/stylix";
@@ -25,20 +15,14 @@
     };
 	};
 
-	outputs = {self, nixpkgs, firefox-addons, home-manager, stylix, ...}@inputs:
+	outputs = {self, nixpkgs, home-manager, stylix, ...}@inputs:
     let 
       lib = nixpkgs.lib;
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
           inherit system;
-          config = {
-            allowUnfree = true;
-            allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-              "betterttv"
-              "seventv"
-            ];
-          };
+          config.allowUnfree = true;
         };
 
       vars = {

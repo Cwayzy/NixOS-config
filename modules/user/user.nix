@@ -13,7 +13,6 @@
     ./wofi/wofi.nix
     ./mako/mako.nix
     ./discord/discord.nix
-    ./zen/zen.nix
     ./openlp/openlp.nix
   ];
 
@@ -36,7 +35,6 @@
       enable = true;
       withVencord = true;
     };
-    zen.enable = false;
     openlp.enable = true;
   };
 }
