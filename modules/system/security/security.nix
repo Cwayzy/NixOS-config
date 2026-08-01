@@ -1,0 +1,18 @@
+{config, lib, pkgs, ... }:
+let
+  cfg = config.modules.system.security;
+in
+{
+  options.modules.system.security = {
+    enable = lib.mkEnableOption "Enable security";
+  };
+
+  config = lib.mkIf cfg.enable {
+    security.pam.services.hyprlock = {};
+    security.polkit.enable = true;
+
+    enviorment.systemPackages = with pkgs; [
+      hyprpolkitagent
+    ];
+  }
+}
