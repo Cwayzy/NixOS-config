@@ -13,6 +13,7 @@
     ./wofi/wofi.nix
     ./mako/mako.nix
     ./discord/discord.nix
+    ./openlp/openlp.nix
   ];
 
   modules.user = {
@@ -34,5 +35,6 @@
       enable = true;
       withVencord = true;
     };
+    openlp.enable = true;
   };
 }
