@@ -2,6 +2,7 @@
 {
   imports = [
     ./sddm/sddm.nix
+    ./laptop-optimization/laptop-optimization.nix
     ./security/security.nix
     ./fingerprint/fingerprint.nix
     ./mount/mount.nix

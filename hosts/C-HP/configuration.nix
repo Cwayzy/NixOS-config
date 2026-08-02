@@ -11,6 +11,7 @@
       autologin = true;
     };
 
+    laptop-optimization.enable = true;
     security.enable = true;
     fingerprint.enable = true;
     mount.enable = true;
@@ -57,7 +58,7 @@
      gcc
      networkmanagerapplet
    ];
-
+  programs.firefox.enable = true;
   programs.nix-ld.enable = true; 
       
   fonts.packages = with pkgs; [
