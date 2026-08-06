@@ -3,11 +3,11 @@ let
   cfg = config.modules.system.laptop-optimization;
 in
 {
-  options.modules.sysyem.laptop-optimization = {
+  options.modules.system.laptop-optimization = {
       enable = lib.mkEnableOption "Enable various laptop optimizations";
   };
 
-  config = lib.mkIf cfg.enmable {
+  config = lib.mkIf cfg.enable {
     hardware.cpu.intel.updateMicrocode = true;
 
     services.thermald.enable = true;

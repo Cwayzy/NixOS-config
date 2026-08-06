@@ -10,6 +10,5 @@
     ./bluetooth/bluetooth.nix
     ./gaming/gaming.nix
     ./flatpak/flatpak.nix
-    ./flatpak/openlp.nix
   ];
 }

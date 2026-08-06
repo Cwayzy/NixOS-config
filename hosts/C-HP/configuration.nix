@@ -18,8 +18,7 @@
     hyprland.enable = true;
     bluetooth.enable = true;
     gaming.enable = false;
-    flatpak.enable = true;
-    openlp.enable = true;
+    flatpak.enable = false;
   }; 
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
