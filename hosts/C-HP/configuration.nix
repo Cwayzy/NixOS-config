@@ -18,7 +18,6 @@
     desktop = {
       hyprland.enable = true;
     };
-
     bluetooth.enable = true;
     gaming.enable = false;
     flatpak.enable = false;
@@ -37,8 +36,6 @@
      font = "Lat2-Terminus16";
      keyMap = "et";
    };
-
-  nixpkgs.config.allowUnfree = true;
 
   services.pipewire = {
      enable = true;

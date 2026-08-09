@@ -1,9 +1,9 @@
 { config, pkgs, vars, inputs, ...}:
 
 {
-  imports = 
+  imports =
   [
-    ./modules/user/user.nix
+    ../../modules/user/user.nix
   ];
 
 	home.username = vars.username;

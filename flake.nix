@@ -33,8 +33,8 @@
       };
 
       mkHost = hostName: lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs vars; };
+        inherit system pkgs;
+        specialArgs = { inherit inputs vars hostName; };
         modules = [ 
           ./hosts/${hostName}/${hostName}.nix
           home-manager.nixosModules.home-manager
