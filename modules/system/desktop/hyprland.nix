@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, vars, ... }:
 let
-  cfg = config.modules.system.hyprland;
+  cfg = config.modules.system.desktop.hyprland;
 in 
 {
-  options.modules.system.hyprland = {
+  options.modules.system.desktop.hyprland = {
     enable = lib.mkEnableOption "Enable hyprland";
 
     withUWSM = lib.mkOption {
@@ -19,5 +19,7 @@ in
       xwayland.enable = true;
       withUWSM = cfg.withUWSM;
     };
+
+    home-manager.users.${vars.username}.modules.user.desktop.hyprland.enable = lib.mkDefault true;
   };
 }

@@ -6,7 +6,7 @@
     ./kitty/kitty.nix
     ./mimeapps/mimeapps.nix
     ./fastfetch/fastfetch.nix
-    ./hyprland/hyprland.nix
+    ./desktop/hyprland/hyprland.nix
     ./hypr-extras/hypr-extras.nix
     ./stylix/stylix.nix
     ./waybar/waybar.nix
@@ -21,7 +21,6 @@
     kitty.enable = true;
     mimeapps.enable = true;
     fastfetch.enable = true;
-    hyprland.enable = true;
     hypr-extras = {
       enable = true;
         hypridle.enable = true;

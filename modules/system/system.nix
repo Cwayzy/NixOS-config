@@ -6,7 +6,7 @@
     ./security/security.nix
     ./fingerprint/fingerprint.nix
     ./mount/mount.nix
-    ./hyprland/hyprland.nix
+    ./desktop/hyprland.nix
     ./bluetooth/bluetooth.nix
     ./gaming/gaming.nix
     ./flatpak/flatpak.nix
