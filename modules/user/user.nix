@@ -14,28 +14,4 @@
     ./mako/mako.nix
     ./discord/discord.nix
   ];
-
-  modules.user = {
-    shell.enable = true;
-    term-apps.enable = true;
-    kitty.enable = true;
-    mimeapps.enable = true;
-    fastfetch.enable = true;
-    desktop = {
-        hyprland.enable = true;
-      };
-      
-    hypr-extras = {
-      enable = true;
-        hypridle.enable = true;
-    };
-    stylix.enable = true;
-    waybar.enable = true;
-    wofi.enable = true;
-    mako.enable = true;
-    discord ={
-      enable = true;
-      withVencord = true;
-    };
-  };
-}
+ }
