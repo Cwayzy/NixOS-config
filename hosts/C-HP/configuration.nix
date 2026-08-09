@@ -15,7 +15,10 @@
     security.enable = true;
     fingerprint.enable = true;
     mount.enable = true;
-    hyprland.enable = true;
+    desktop = {
+      hyprland.enable = true;
+    };
+
     bluetooth.enable = true;
     gaming.enable = false;
     flatpak.enable = false;

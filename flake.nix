@@ -35,22 +35,23 @@
       mkHost = hostName: lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs vars; };
-        modules = [ ./hosts/${hostName}/${hostName}.nix ];
+        modules = [ 
+          ./hosts/${hostName}/${hostName}.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit inputs vars hostName; };
+              sharedModules = [ stylix.homeModules.stylix ];
+              users.${vars.username} = import ./hosts/${hostName}/home.nix;
+            };
+          }
+        ];
       };
 
     in
-  { 
-		nixosConfigurations = lib.genAttrs vars.hosts mkHost;
-
-    homeConfigurations = {
-      "${vars.username}" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit inputs vars; };
-        modules = [ 
-        stylix.homeModules.stylix
-        ./home.nix
-        ];
-      };
-    };
-	};
+    { 
+		  nixosConfigurations = lib.genAttrs vars.hosts mkHost;
+	  };
 }

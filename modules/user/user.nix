@@ -21,6 +21,10 @@
     kitty.enable = true;
     mimeapps.enable = true;
     fastfetch.enable = true;
+    desktop = {
+        hyprland.enable = true;
+      };
+      
     hypr-extras = {
       enable = true;
         hypridle.enable = true;

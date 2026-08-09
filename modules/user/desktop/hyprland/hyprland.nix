@@ -1,9 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.modules.user.hyprland;
+  cfg = config.modules.user.desktop.hyprland;
 in 
 {
-  options.modules.user.hyprland = {
+  options.modules.user.desktop.hyprland = {
     enable = lib.mkEnableOption "enable hyprland";
   };
 
