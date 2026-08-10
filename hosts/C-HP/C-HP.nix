@@ -15,6 +15,7 @@
 
   users.users.${vars.username} = {
     isNormalUser = true;
+    uid = 1026;
     extraGroups = [ "wheel" "networkmanager" "video" "render" ];
     packages = with pkgs; [
       tree

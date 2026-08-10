@@ -11,6 +11,13 @@
       autologin = true;
     };
 
+    mount = {
+      home.enable = true;
+      mods.enable = true;
+      tesk.enable = true;
+      backup.enable = true;
+    };
+
     laptop-optimization.enable = true;
     security.enable = true;
     fingerprint.enable = true;
