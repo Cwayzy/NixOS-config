@@ -1,9 +1,11 @@
-{ config, lib, pkgs, stylix, ... }:
-
+{ config, lib, pkgs, vars, stylix, ... }:
 {
-  imports = [ 
+  imports = [
+    ./hardware-configuration.nix
     ../../modules/system/system.nix
   ];
+
+  networking.hostName = "C-HP";
 
   modules.system = {
     sddm = {
@@ -21,7 +23,6 @@
     laptop-optimization.enable = true;
     security.enable = true;
     fingerprint.enable = true;
-    mount.enable = true;
 
     audio = {
       enable = true;
@@ -31,62 +32,75 @@
     desktop = {
       hyprland.enable = true;
     };
+
     bluetooth.enable = true;
     gaming.enable = false;
     flatpak.enable = false;
-  }; 
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.supportedFilesystems = [ "nfs"];
+  };
 
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
 
-  time.timeZone = "Europe/Tallinn";
-  i18n.defaultLocale = "en_US.UTF-8";
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.supportedFileSystems = [ "nfs" ];
+	
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.resumeDevice = "/dev/mapper/cryptroot";
+  boot.kernelParams = [ "resume_offset=2630912"];
+
+  time.timeZone =  "Europe/Tallinn";
+  il8n.defaultLocale = "en_US.UTF-8";
 
   console = {
-     font = "Lat2-Terminus16";
-     keyMap = "et";
-   };
-
-  services.pipewire = {
-     enable = true;
-     wireplumber.enable = true;
-     alsa.enable = true;
-     alsa.support32Bit = true;
-     pulse.enable = true;
+    font = "Lat2-Terminus16";
+    keymap = "et";
   };
 
-   environment.systemPackages = with pkgs; [
-     brave 
-     neovim
-     killall
-     alsa-plugins
-     bluez
-     libnotify
-     font-awesome
-     wget
-     gcc
-     networkmanagerapplet
-   ];
-  programs.firefox.enable = true;
-  programs.nix-ld.enable = true; 
-      
+  users.users.${vars.username} = {
+    isNormalUser = true;
+    uid = 1026;
+    extraGroups = [ "wheel" "networkmanager" "video" "render" ];
+    packages = with pkgs; [
+      tree
+    ];
+  };
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    brave 
+    neovim
+    killall
+    alsa-plugins
+    bluez
+    libnotify
+    font-awesome
+    wget
+    gcc
+    networkmanagerapplet
+  ];
+
   fonts.packages = with pkgs; [
 	noto-fonts
 	adwaita-fonts
 	nerd-fonts.jetbrains-mono
 	noto-fonts-cjk-sans
   ];
-  
+
   nix.gc = {
 	automatic = true;
 	dates = "weekly";
 	options = "--delete-older-than 7d";
   };
 
+  programs.nix-ld.enable = true; 
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
-}
 
+  system.stateVersion = "26.05";
+}
