@@ -25,9 +25,9 @@ in
       wireplumber.enable = true;
     };
 
-    services.pulseaduio.enable = false;
+    services.pulseaudio.enable = false;
 
-    enviorment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       pwvucontrol
       wireplumber
       pavucontrol
@@ -37,6 +37,6 @@ in
       options intel_hid enable_5_button_array=1
     '';
 
-    boot.kernelPackages = mkIf cfg.hpEliteBookQuirks (lib.mkDefault pkgs.linuxPackages_latest);
+    boot.kernelPackages = lib.mkIf cfg.hpEliteBookQuirks (lib.mkDefault pkgs.linuxPackages_latest);
   };
 }

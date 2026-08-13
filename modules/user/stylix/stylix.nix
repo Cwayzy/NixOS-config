@@ -21,7 +21,6 @@ in
         waybar.enable = false;
         wofi.enable = false;
         mako.enable = false;
-        zen-browser.profileNames = [ "default" ];
       };
     };
   };

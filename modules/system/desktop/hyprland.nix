@@ -19,7 +19,5 @@ in
       xwayland.enable = true;
       withUWSM = cfg.withUWSM;
     };
-
-    #home-manager.users.${vars.username}.modules.user.desktop.hyprland.enable = lib.mkDefault true;
   };
 }
