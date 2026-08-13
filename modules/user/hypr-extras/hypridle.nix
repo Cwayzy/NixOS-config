@@ -30,15 +30,7 @@ in
           }
 	        {
             timeout = 900; # 15 minutes -> hibernate
-            on-timeout = "/usr/bin/systemctl hibernate";
-          }
-	        {
-	          event = "lid_close";
-	          on-event = "pidof hyprlock || hyprlock";
-	        }
-          {
-            event = "lid_open";
-            on-event = "hyprctl dispatch 'hl.dsp.dpms({ action = on })'";
+            on-timeout = "pidof hyprlock || hyprlock & systemctl hibernate";
           }
         ];
       };

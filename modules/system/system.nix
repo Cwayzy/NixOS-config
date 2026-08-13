@@ -7,6 +7,7 @@
     ./fingerprint/fingerprint.nix
     ./mount/mount.nix
     ./desktop/hyprland.nix
+    ./audio/audio.nix
     ./bluetooth/bluetooth.nix
     ./gaming/gaming.nix
     ./flatpak/flatpak.nix

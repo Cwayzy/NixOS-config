@@ -22,6 +22,12 @@
     security.enable = true;
     fingerprint.enable = true;
     mount.enable = true;
+
+    audio = {
+      enable = true;
+      #hpEliteBookQuirks = false;
+    };
+
     desktop = {
       hyprland.enable = true;
     };
