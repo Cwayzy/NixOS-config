@@ -9,6 +9,6 @@ in
   ];
 
   options.modules.user.browser = {
-    enable = lib.mkIf cfg.enable;
+    enable = lib.mkEnableOption "Enable browser module";
   };
 }

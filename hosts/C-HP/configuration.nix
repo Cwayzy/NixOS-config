@@ -59,7 +59,7 @@
   };
 
    environment.systemPackages = with pkgs; [
-     brave
+     brave 
      neovim
      killall
      alsa-plugins

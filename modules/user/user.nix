@@ -13,5 +13,6 @@
     ./wofi/wofi.nix
     ./mako/mako.nix
     ./discord/discord.nix
+    ./browser/browser.nix
   ];
  }
