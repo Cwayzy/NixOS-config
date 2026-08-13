@@ -42,7 +42,7 @@
   services.tailscale.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.supportedFileSystems = [ "nfs" ];
+  boot.supportedFilesystems = [ "nfs" ];
 	
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -51,11 +51,11 @@
   boot.kernelParams = [ "resume_offset=2630912"];
 
   time.timeZone =  "Europe/Tallinn";
-  il8n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   console = {
     font = "Lat2-Terminus16";
-    keymap = "et";
+    keyMap = "et";
   };
 
   users.users.${vars.username} = {
