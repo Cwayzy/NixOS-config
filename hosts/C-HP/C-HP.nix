@@ -14,6 +14,7 @@
     };
 
     mount = {
+      enable = true;
       home.enable = true;
       mods.enable = true;
       tesk.enable = true;
@@ -34,7 +35,7 @@
     };
 
     bluetooth.enable = true;
-    gaming.enable = false;
+    gaming.enable = true;
     flatpak.enable = false;
   };
 

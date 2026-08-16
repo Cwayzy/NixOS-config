@@ -1,5 +1,5 @@
 #!/bin/bash
-et -euo pipefail
+set -euo pipefail
 
 SINK_IDS=$(wpctl status | awk '
   /Sinks:/ { in_sinks=1; next }

@@ -28,12 +28,12 @@ if hostname == "C-HP" then
 	)
 	hl.bind(
 		"XF86AudioMute",
-		hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/toggle-mute.sh"),
+		hl.dsp.exec_cmd("bash $HOME/.dotfiles/modules/user/hypr-extras/scripts/toggle-mute.sh"),
 		{ locked = true, repeating = true }
 	)
 	hl.bind(
 		"XF86AudioMicMute",
-		hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/toggle-micmute.sh"),
+		hl.dsp.exec_cmd("bash $HOME/.dotfiles/modules/user/hypr-extras/scripts/toggle-micmute.sh"),
 		{ locked = true, repeating = true }
 	)
 	hl.bind(
@@ -47,7 +47,7 @@ if hostname == "C-HP" then
 		{ locked = true, repeating = true }
 	)
 
-	hl.bind(hyper .. " + P", hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/toggle-hdmi.sh"))
+	hl.bind(hyper .. " + P", hl.dsp.exec_cmd("bash $HOME/.dotfiles/modules/user/hypr-extras/scripts/toggle-hdmi.sh"))
 
 	hl.bind("ALT + 1", hl.dsp.exec_cmd("powerprofilesctl set performance && notify-send 'Power Profile' 'Performance'"))
 	hl.bind("ALT + 2", hl.dsp.exec_cmd("powerprofilesctl set balanced && notify-send 'Power Profile' 'Balanced'"))
@@ -60,7 +60,7 @@ hl.bind(mod .. " + N", hl.dsp.exec_cmd(terminal .. " --class Neovim -e nvim"))
 hl.bind(mod .. " + ESCAPE", hl.dsp.exec_cmd(terminal .. " --class BTOP -e btop"))
 hl.bind(mod .. " + A", hl.dsp.exec_cmd(terminal .. " --class aerc -e aerc"))
 hl.bind(mod .. " + R", hl.dsp.exec_cmd(terminal .. " --class yazi -e yazi"))
-hl.bind(hyper .. " + B", hl.dsp.exec_cmd("$HOME/.config/hypr/scripts/bluetooth-toggle.sh"))
+hl.bind(hyper .. " + B", hl.dsp.exec_cmd("bash $HOME/.dotfiles/modules/user/hypr-extras/scripts/bluetooth-toggle.sh"))
 hl.bind(sup .. " + S", hl.dsp.exec_cmd(capture))
 hl.bind(mod .. " + S", hl.dsp.exec_cmd(menu))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd(fileManager))
