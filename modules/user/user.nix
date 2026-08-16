@@ -15,5 +15,6 @@
     ./discord/discord.nix
     ./browser/browser.nix
     ./music/music.nix
+    ./thonny/thonny.nix
   ];
  }

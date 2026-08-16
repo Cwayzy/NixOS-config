@@ -24,7 +24,7 @@ hl.workspace_rule({ workspace = "4", monitor = philips })
 hl.workspace_rule({
 	workspace = "special:discord",
 	layout = "master",
-	on_created_empty = "discord & sleep 5 && brave",
+	on_created_empty = "discord & sleep 5 && pear-desktop",
 })
 
 -- APPLICATION RULES --
@@ -47,7 +47,7 @@ hl.window_rule({
 	opacity = "1 override",
 })
 hl.window_rule({ match = { class = "Spotify" }, workspace = "special:discord", opacity = "1 override" })
-hl.window_rule({ match = { class = "zen" }, no_dim = true, opacity = "1 override" })
+hl.window_rule({ match = { class = "com.github.th-ch.youtube-music" }, workspace = "special:discord", opacity = "1 override" })
   '';
   autoLoad = true;
 }

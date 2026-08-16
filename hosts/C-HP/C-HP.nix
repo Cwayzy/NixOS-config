@@ -74,7 +74,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    brave 
     neovim
     killall
     alsa-plugins
@@ -82,6 +81,7 @@
     libnotify
     font-awesome
     wget
+    wev
     gcc
     networkmanagerapplet
   ];

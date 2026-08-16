@@ -33,6 +33,7 @@
     };
     browser.enable = true;
     music.enable = true;
+    thonny.enable = true;
   };
 
 	home.username = vars.username;
