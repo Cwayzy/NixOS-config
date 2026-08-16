@@ -14,5 +14,6 @@
     ./mako/mako.nix
     ./discord/discord.nix
     ./browser/browser.nix
+    ./music/music.nix
   ];
  }

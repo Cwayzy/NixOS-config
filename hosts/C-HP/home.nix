@@ -32,6 +32,7 @@
       withVencord = true;
     };
     browser.enable = true;
+    music.enable = true;
   };
 
 	home.username = vars.username;
