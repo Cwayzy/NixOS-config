@@ -31,7 +31,11 @@
     };
 
     desktop = {
-      hyprland.enable = true;
+      hyprland = {
+        enable = false;
+        withUWSM = true;
+      };
+      plasma.enable = true;
     };
 
     bluetooth.enable = true;

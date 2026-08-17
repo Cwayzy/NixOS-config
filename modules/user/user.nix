@@ -7,6 +7,7 @@
     ./mimeapps/mimeapps.nix
     ./fastfetch/fastfetch.nix
     ./desktop/hyprland/hyprland.nix
+    ./desktop/plasma/plasma.nix
     ./hypr-extras/hypr-extras.nix
     ./stylix/stylix.nix
     ./waybar/waybar.nix

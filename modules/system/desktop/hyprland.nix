@@ -19,5 +19,19 @@ in
       xwayland.enable = true;
       withUWSM = cfg.withUWSM;
     };
+
+    home-manager.users.kevin = {
+      imports = [ ../../user/user.nix ];
+      modules.user = {
+        desktop.hyprland.enable = true; #hyprland configs
+        hypr-extras = {
+          enable = true;
+          hypridle.enable = true;
+        };
+        waybar.enable = true;
+        wofi.enable = true;
+        mako.enable = true;
+      };
+    };
   };
 }

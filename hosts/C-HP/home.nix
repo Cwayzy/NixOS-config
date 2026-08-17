@@ -1,4 +1,4 @@
-{ config, pkgs, vars, inputs, ...}:
+{ config, lib, pkgs, vars, inputs, ...}:
 
 {
   imports =
@@ -12,21 +12,7 @@
     kitty.enable = true;
     mimeapps.enable = true;
     fastfetch.enable = true;
-
-    desktop = {
-        hyprland.enable = true;
-      };
-      
-    hypr-extras = {
-      enable = true;
-        hypridle.enable = true;
-    };
-
     stylix.enable = true;
-    waybar.enable = true;
-    wofi.enable = true;
-    mako.enable = true;
-
     discord ={
       enable = true;
       withVencord = true;
@@ -44,6 +30,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    QT_QPA_PLATFORMTHEME = lib.mkForce null;
   };
   
   programs.home-manager.enable = true;

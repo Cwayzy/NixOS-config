@@ -21,6 +21,8 @@ in
         waybar.enable = false;
         wofi.enable = false;
         mako.enable = false;
+        kde.enable = false;
+        qt.enable = false;
       };
     };
   };
