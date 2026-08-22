@@ -24,6 +24,12 @@ in
         kde.enable = false;
         qt.enable = false;
       };
+
+      cursor = {
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
+        size = 24;
+      };
     };
   };
 }

@@ -9,7 +9,7 @@ local capture = "hyprshot -m region --freeze --clipboard-only"
 local clip = "pkill -SIGUSR1 -f gpu-screen-recorder"
 
 local mod = "SUPER"
-local hyper = "MOD3"
+local hyper = "SHIFT + CONTROL + SUPER + ALT"
 local sup = "SUPER + SHIFT"
 
 -- LAPTOP SPECIFIC--
@@ -48,10 +48,6 @@ if hostname == "C-HP" then
 	)
 
 	hl.bind(hyper .. " + P", hl.dsp.exec_cmd("bash $HOME/.dotfiles/modules/user/hypr-extras/scripts/toggle-hdmi.sh"))
-
-	hl.bind("ALT + 1", hl.dsp.exec_cmd("powerprofilesctl set performance && notify-send 'Power Profile' 'Performance'"))
-	hl.bind("ALT + 2", hl.dsp.exec_cmd("powerprofilesctl set balanced && notify-send 'Power Profile' 'Balanced'"))
-	hl.bind("ALT + 3", hl.dsp.exec_cmd("powerprofilesctl set power-saver && notify-send 'Power Profile' 'Power Saver'"))
 end
 
 -- SYSTEM APPLICATIONS --
@@ -72,15 +68,13 @@ hl.bind(hyper .. " + V", hl.dsp.exec_cmd("easyeffects"))
 hl.bind(mod .. " + BACKSPACE", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("ALT + G", hl.dsp.exec_cmd(clip))
 
-hl.bind("Page_Down", hl.dsp.send_shortcut({ mods = "", key = "Delete" }), { repeating = true })
-
 hl.bind(hyper .. " + comma", hl.dsp.exec_cmd("wtype '<'"))
 hl.bind(hyper .. " + period", hl.dsp.exec_cmd("wtype '>'"))
 hl.bind(hyper .. " + minus", hl.dsp.exec_cmd("wtype '|'"))
 hl.bind(hyper .. " + return", hl.dsp.exec_cmd("virsh -c qemu:///system start win11"))
 
-hl.bind("Delete", hl.dsp.pass({ window = "class:^(discord)$" }))
-hl.bind("Page_Up", hl.dsp.pass({ window = "class:^(discord)$" }))
+hl.bind("code:191", hl.dsp.pass({ window = "class:^(discord)$" }))
+hl.bind("code:192", hl.dsp.pass({ window = "class:^(discord)$" }))
 
 hl.bind(hyper .. " + ESCAPE", hl.dsp.exec_cmd("shutdown now"))
 hl.bind(

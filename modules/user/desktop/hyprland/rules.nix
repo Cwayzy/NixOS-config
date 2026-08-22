@@ -24,7 +24,7 @@ hl.workspace_rule({ workspace = "4", monitor = philips })
 hl.workspace_rule({
 	workspace = "special:discord",
 	layout = "master",
-	on_created_empty = "discord & sleep 5 && pear-desktop",
+	on_created_empty = "discord --ozone-platform=x11& sleep 5 && pear-desktop",
 })
 
 -- APPLICATION RULES --

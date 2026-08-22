@@ -32,12 +32,13 @@
 
     desktop = {
       hyprland = {
-        enable = false;
+        enable = true;
         withUWSM = true;
       };
-      plasma.enable = true;
+      plasma.enable = false;
     };
 
+    binds.enable = true;
     bluetooth.enable = true;
     gaming.enable = true;
     flatpak.enable = false;
@@ -75,6 +76,10 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-compute-runtime
+      intel-media-driver
+    ];
   };
 
   environment.systemPackages = with pkgs; [

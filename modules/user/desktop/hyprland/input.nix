@@ -6,7 +6,7 @@ hl.config({
 		kb_layout = "ee",
 		kb_variant = "",
 		kb_model = "",
-		kb_options = "caps:hyper",
+		kb_options = "",
 		kb_rules = "",
 
 		follow_mouse = 1,

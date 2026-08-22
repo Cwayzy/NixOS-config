@@ -20,6 +20,10 @@
     browser.enable = true;
     music.enable = true;
     thonny.enable = true;
+    davinci-resolve = {
+      enable = true;
+      enableIntelGPU = true;
+    };
   };
 
 	home.username = vars.username;
@@ -27,6 +31,8 @@
 	home.stateVersion = "26.05";
 
 	home.packages = with pkgs; [];
+
+  xdg.userDirs.enable = false;
 
   home.sessionVariables = {
     EDITOR = "nvim";

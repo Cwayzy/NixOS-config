@@ -9,6 +9,7 @@
     ./desktop/hyprland.nix
     ./desktop/plasma.nix
     ./audio/audio.nix
+    ./binds/binds.nix
     ./bluetooth/bluetooth.nix
     ./gaming/gaming.nix
     ./flatpak/flatpak.nix

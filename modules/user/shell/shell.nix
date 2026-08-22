@@ -15,14 +15,14 @@ in
         sn = "sudo nvim";
         um = "cd $HOME/.dotfiles/modules/user";
         sm = "cd $HOME/.dotfiles/modules/system";
-        zen-browser = "zen-beta";
+        discord = "discord -ozone-platform=x11";
         hp = "cd /$HOME/.dotfiles/hosts/C-HP";
         pc = "cd /$HOME/.dotfiles/hosts/C-PC";
         hc = "cd $HOME/.config/hypr";
         nc = "cd $HOME/.dotfiles/";
         nrs = "sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
-        hms = "home-manager switch --flake $HOME/.dotfiles#$(whoami)";
         upgrade = "cd $HOME/.dotfiles/ && nix flake update && sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
+        garbage = "sudo nix-collect-garbage -d";
       };
     };
   };
