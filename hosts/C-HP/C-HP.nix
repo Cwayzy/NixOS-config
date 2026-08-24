@@ -49,7 +49,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services.logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitchExternalPower = "suspend-then-hibernate";
+    HandleLidSwitchDocked = "ignore";
+    HandlePowerKey = "suspend-then-hibernate";
+  };
+
   systemd.sleep.settings.Sleep.HibernateDelaySec = "5min";
   boot.resumeDevice = "/dev/mapper/cryptroot";
   boot.kernelParams = [ "mem_sleep_default=deep" "resume_offset=2630912"];
