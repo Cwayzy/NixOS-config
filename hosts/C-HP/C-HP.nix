@@ -24,11 +24,7 @@
     laptop-optimization.enable = true;
     security.enable = true;
     fingerprint.enable = true;
-
-    audio = {
-      enable = true;
-      #hpEliteBookQuirks = false;
-    };
+    audio.enable = true;
 
     desktop = {
       hyprland = {
@@ -53,8 +49,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "5min";
   boot.resumeDevice = "/dev/mapper/cryptroot";
-  boot.kernelParams = [ "resume_offset=2630912"];
+  boot.kernelParams = [ "mem_sleep_default=deep" "resume_offset=2630912"];
 
   time.timeZone =  "Europe/Tallinn";
   i18n.defaultLocale = "en_US.UTF-8";

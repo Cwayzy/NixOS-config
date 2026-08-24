@@ -38,10 +38,12 @@
         modules = [ 
           ./hosts/${hostName}/${hostName}.nix
           home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              backupFileExtension = "hm-bak";
               extraSpecialArgs = { inherit inputs vars hostName; };
               sharedModules = [ stylix.homeModules.stylix ];
               users.${vars.username} = import ./hosts/${hostName}/home.nix;

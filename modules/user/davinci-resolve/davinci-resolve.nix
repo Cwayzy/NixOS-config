@@ -22,8 +22,8 @@ in
 
     home.sessionVariables = lib.mkIf cfg.enableIntelGPU {
       OCL_ICD_VENDORS = "/run/opengl-driver/etc/OpenCL/vendors";
+    };
 
     home.file.".local/share/DaVinciResolve/.keep".text = "";
-    };
   };
 }

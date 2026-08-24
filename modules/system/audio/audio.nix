@@ -5,12 +5,6 @@ in
 {
   options.modules.system.audio = {
     enable = lib.mkEnableOption "Pipewire/Wireplumber audio stack";
-
-    hpEliteBookQuirks = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "fix elitebook specific fixes";
-    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -32,11 +26,5 @@ in
       wireplumber
       pavucontrol
     ];
-
-    boot.extraModprobeConfig = lib.mkIf cfg.hpEliteBookQuirks ''
-      options intel_hid enable_5_button_array=1
-    '';
-
-    boot.kernelPackages = lib.mkIf cfg.hpEliteBookQuirks (lib.mkDefault pkgs.linuxPackages_latest);
   };
 }

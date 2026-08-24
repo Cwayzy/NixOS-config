@@ -17,6 +17,7 @@ in
           #hash = "sha256-suN8kjWn/GCkFu6vkrXVpazc5nMl/542HArVcGr6R0I=";
         #};
       targets = {
+        firefox.profileNames = [ "default" ];
         hyprlock.enable = false;
         waybar.enable = false;
         wofi.enable = false;

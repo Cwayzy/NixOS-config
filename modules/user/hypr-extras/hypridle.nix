@@ -30,7 +30,7 @@ in
           }
 	        {
             timeout = 900; # 15 minutes -> hibernate
-            on-timeout = "pidof hyprlock || hyprlock & systemctl hibernate";
+            on-timeout = "systemctl hibernate";
           }
         ];
       };
