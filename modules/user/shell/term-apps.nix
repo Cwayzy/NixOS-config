@@ -22,6 +22,7 @@ in
       pwvucontrol
       poppler-utils
       rsync
+      mpv
       thunar
       wl-clipboard
       yazi

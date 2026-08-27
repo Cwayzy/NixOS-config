@@ -37,7 +37,7 @@
     binds.enable = true;
     bluetooth.enable = true;
     gaming.enable = true;
-    flatpak.enable = false;
+    flatpak.enable = true;
   };
 
   networking.networkmanager.enable = true;
@@ -53,12 +53,11 @@
     HandleLidSwitch = "suspend-then-hibernate";
     HandleLidSwitchExternalPower = "suspend-then-hibernate";
     HandleLidSwitchDocked = "ignore";
-    HandlePowerKey = "suspend-then-hibernate";
   };
 
-  systemd.sleep.settings.Sleep.HibernateDelaySec = "5min";
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "10min";
   boot.resumeDevice = "/dev/mapper/cryptroot";
-  boot.kernelParams = [ "mem_sleep_default=deep" "resume_offset=2630912"];
+  boot.kernelParams = [ "resume_offset=2630912" ];
 
   time.timeZone =  "Europe/Tallinn";
   i18n.defaultLocale = "en_US.UTF-8";

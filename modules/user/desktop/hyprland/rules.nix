@@ -47,6 +47,7 @@ hl.window_rule({
 	opacity = "1 override",
 })
 hl.window_rule({ match = { class = "Spotify" }, workspace = "special:discord", opacity = "1 override" })
+hl.window_rule({ match = { class = "OpenLP" }, workspace = "4", opacity = "1 override" })
 hl.window_rule({ match = { class = "com.github.th-ch.youtube-music" }, workspace = "special:discord", opacity = "1 override" })
   '';
   autoLoad = true;

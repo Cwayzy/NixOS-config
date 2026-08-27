@@ -65,7 +65,7 @@
 		format-ethernet = "󰈀";
 		format-disconnected = "󱛅";
     tooltip-format = "{ipaddr}";
-		tooltip-format-wifi = "{essid} ({signalStrenght}%)\n{ipaddr}";
+		tooltip-format-wifi = "{essid} ({signalStrength}%)\n{ipaddr}";
 		on-click = "nm-connection-editor";
   };
 

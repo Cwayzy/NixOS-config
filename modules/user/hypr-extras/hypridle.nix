@@ -21,12 +21,23 @@ in
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
           before_sleep_cmd = "pidof hyprlock || hyprlock";
+          after_sleep_cmd = "hyprctl dispatch 'hl.dsp.dpms({ action = \"on\" })'";
         };
 
         listener = [
           {
+            timeout = 240; # 4 minutres -> dim
+            on-timeout = "brightnessctl -s set 10%";
+            on-resume = "brightnessctl -r";
+          }
+          {
             timeout = 600; # 10 minutes -> lock
             on-timeout = "pidof hyprlock || hyprlock";
+          }
+          {
+            timeout = 630;
+            on-timeout = "hyprctl dispatch 'hl.dsp.dpms({ action = \"off\" })'";
+            on-resume = "hyprctl dispatch 'hl.dsp.dpms({ action = \"on\" })'";
           }
 	        {
             timeout = 900; # 15 minutes -> hibernate
