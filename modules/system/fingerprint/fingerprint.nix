@@ -4,12 +4,13 @@ let
 
   syncFprintdToLid = pkgs.writeShellScript "sync-fprintd-to-lid" ''
     if grep -q closed /proc/acpi/button/lid/*/state 2>/dev/null; then
-      systemctl mask --now fprintd.service
+      touch /run/fprintd-disabled
+      systemctl stop fprintd.service 2>/dev/null || true
     else
-      systemctl unmask fprintd.service
+      rm -f /run/fprintd-disabled
     fi
   '';
-in
+ in
 {
   options.modules.system.fingerprint = {
     enable = lib.mkEnableOption "Enable fingerprint login";
@@ -17,12 +18,13 @@ in
 
   config = lib.mkIf cfg.enable {
     services.fprintd.enable = true;
-
     security.pam.services = {
       sudo.fprintAuth = true;
       sddm.fprintAuth = true;
       hyprlock.fprintAuth = true;
     };
+
+    systemd.services.fprintd.unitConfig.ConditionPathExists = "!/run/fprintd-disabled";
 
     services.acpid.enable = true;
     services.acpid.lidEventCommands = "${syncFprintdToLid}";
