@@ -55,7 +55,7 @@
     HandleLidSwitchDocked = "ignore";
   };
 
-  systemd.sleep.settings.Sleep.HibernateDelaySec = "10min";
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "25min";
   boot.resumeDevice = "/dev/mapper/cryptroot";
   boot.kernelParams = [ "resume_offset=2630912" ];
 
