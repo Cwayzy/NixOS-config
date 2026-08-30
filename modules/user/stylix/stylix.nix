@@ -25,6 +25,7 @@ in
         kde.enable = false;
         qt.enable = false;
       };
+      overlays.enable = false;
 
       cursor = {
         name = "Adwaita";
