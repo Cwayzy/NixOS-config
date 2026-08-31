@@ -14,12 +14,13 @@ for _, ws in ipairs({ 1, 3, 5, 6, 7, 8, 9, 10 }) do
 end
 
 if hostname == "C-HP" then
-	hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1", default = true })
+	hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-1", default = true })
+else
+  hl.workspace_rule({ workspace = "4", monitor = philips })
 end
 
 hl.workspace_rule({ workspace = "1", monitor = primary, default = true })
 hl.workspace_rule({ workspace = "2", monitor = philips, default = true })
-hl.workspace_rule({ workspace = "4", monitor = philips })
 
 hl.workspace_rule({
 	workspace = "special:discord",
