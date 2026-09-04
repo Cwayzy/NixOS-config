@@ -86,6 +86,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    obsidian
     neovim
     killall
     alsa-plugins
