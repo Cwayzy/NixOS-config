@@ -15,10 +15,26 @@
 
     mount = {
       enable = true;
-      home.enable = true;
-      mods.enable = true;
-      tesk.enable = true;
-      backup.enable = true;
+
+      home = {
+        enable = true;
+        link.enable = true;
+      };
+
+      mods = {
+        enable = true;
+        link.enable = true;
+      };
+
+      tesk = {
+        enable = true;
+        link.enable = true;
+      };
+
+      backup = {
+        enable = true;
+        link.enable = false;
+      };
     };
 
     laptop-optimization.enable = true;
@@ -86,7 +102,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    obsidian
     neovim
     killall
     alsa-plugins
