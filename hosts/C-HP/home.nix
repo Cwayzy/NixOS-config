@@ -30,7 +30,10 @@
 	home.homeDirectory = "/home/${vars.username}";
 	home.stateVersion = "26.05";
 
-	home.packages = with pkgs; [];
+	home.packages = with pkgs; [
+    filezilla
+    obsidian
+  ];
 
   xdg.userDirs.enable = false;
 
