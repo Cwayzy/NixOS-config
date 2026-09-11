@@ -57,7 +57,7 @@ in
           }
           {
             monitor = "";
-            text = "cmd[update:1000] echo \"<span>$(date +'%A, %B, %d')</span>\"";
+            text = "cmd[update:1000] echo \"<span>$(date +'%A, %B %d')</span>\"";
             color = "rgba(255, 255, 255, 0.55)";
             font-size = 22;
             font_family = "SF Pro Display Bold";
