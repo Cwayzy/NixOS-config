@@ -21,7 +21,7 @@
     music.enable = true;
     thonny.enable = true;
     davinci-resolve = {
-      enable = true;
+      enable = false;
       enableIntelGPU = true;
     };
   };
