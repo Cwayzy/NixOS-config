@@ -6,6 +6,7 @@
     ./security/security.nix
     ./fingerprint/fingerprint.nix
     ./mount/mount.nix
+    ./usb/usb.nix
     ./desktop/hyprland.nix
     ./desktop/plasma.nix
     ./audio/audio.nix

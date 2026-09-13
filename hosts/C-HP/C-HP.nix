@@ -37,6 +37,7 @@
       };
     };
 
+    usb.enable = true;
     laptop-optimization.enable = true;
     security.enable = true;
     fingerprint.enable = true;
