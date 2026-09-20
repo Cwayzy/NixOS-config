@@ -31,6 +31,7 @@
 	home.stateVersion = "26.05";
 
 	home.packages = with pkgs; [
+    ytdownloader
     filezilla
     obsidian
   ];
