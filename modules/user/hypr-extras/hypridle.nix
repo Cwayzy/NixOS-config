@@ -20,13 +20,13 @@ in
       settings = {
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
-          before_sleep_cmd = "pidof hyprlock || hyprlock";
+          before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch 'hl.dsp.dpms({ action = \"on\" })'";
         };
 
         listener = [
           {
-            timeout = 240; # 4 minutres -> dim
+            timeout = 240; # 4 minutes -> dim
             on-timeout = "brightnessctl -s set 10%";
             on-resume = "brightnessctl -r";
           }
