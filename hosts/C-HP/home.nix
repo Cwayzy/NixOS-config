@@ -32,6 +32,8 @@
 
 	home.packages = with pkgs; [
     ytdownloader
+    ffmpeg
+    tldr
     filezilla
     obsidian
   ];
