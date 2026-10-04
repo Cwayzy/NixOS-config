@@ -36,6 +36,7 @@
     tldr
     filezilla
     obsidian
+    bootstrap-studio
   ];
 
   xdg.userDirs.enable = false;
