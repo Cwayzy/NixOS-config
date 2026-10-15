@@ -21,6 +21,7 @@ in
         hyprlock.enable = false;
         waybar.enable = false;
         wofi.enable = false;
+        rofi.enable = false;
         mako.enable = false;
         kde.enable = false;
         qt.enable = false;
