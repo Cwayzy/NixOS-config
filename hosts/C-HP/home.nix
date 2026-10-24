@@ -19,7 +19,7 @@
     };
     browser.enable = true;
     music.enable = true;
-    thonny.enable = true;
+    thonny.enable = false;
     davinci-resolve = {
       enable = false;
       enableIntelGPU = true;
@@ -32,10 +32,7 @@
 
 	home.packages = with pkgs; [
     ytdownloader
-    ffmpeg
-    tldr
     filezilla
-    obsidian
     bootstrap-studio
   ];
 

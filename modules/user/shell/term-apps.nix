@@ -14,6 +14,7 @@ in
       brightnessctl
       btop
       fastfetch
+      ffmpeg
       git
       imv
       killall
@@ -24,6 +25,7 @@ in
       rsync
       mpv
       thunar
+      tldr
       wl-clipboard
       yazi
       zathura

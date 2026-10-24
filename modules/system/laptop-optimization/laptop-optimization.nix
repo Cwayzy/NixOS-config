@@ -31,6 +31,7 @@ in
         INTEL_GPU_MAX_FREQ_ON_AC = 1200;
         INTEL_GPU_MAX_FREQ_ON_BAT = 700;
         INTEL_GPU_BOOST_FREQ_ON_BAT = 700;
+        INTEL_GPU_BOOST_FREQ_ON_AC = 1200;
 
         PCIE_ASPM_ON_AC = "default";
         PCIE_ASPM_ON_BAT = "powersupersave";

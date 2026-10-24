@@ -25,7 +25,7 @@ in
       oversteer
     ];
 
-    hardware.xone.enable = true;
+    hardware.xone.enable = false;
   };
 }
 
