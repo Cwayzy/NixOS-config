@@ -22,7 +22,7 @@
     thonny.enable = false;
     davinci-resolve = {
       enable = false;
-      enableIntelGPU = true;
+      enableIntelGPU = false;
     };
   };
 

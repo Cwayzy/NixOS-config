@@ -46,19 +46,19 @@
     desktop = {
       hyprland = {
         enable = true;
-        withUWSM = true;
+        withUWSM = false;
       };
       plasma.enable = false;
     };
 
     binds.enable = true;
-    bluetooth.enable = true;
-    gaming.enable = true;
-    flatpak.enable = true;
+    bluetooth.enable = false;
+    gaming.enable = false;
+    flatpak.enable = false;
   };
 
   networking.networkmanager.enable = true;
-  services.tailscale.enable = true;
+  services.tailscale.enable = false;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "nfs" ];
@@ -80,15 +80,6 @@
     extraGroups = [ "wheel" "networkmanager" "video" "render" ];
     packages = with pkgs; [
       tree
-    ];
-  };
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [
-      intel-compute-runtime
-      intel-media-driver
     ];
   };
 
