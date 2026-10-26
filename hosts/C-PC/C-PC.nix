@@ -46,19 +46,19 @@
     desktop = {
       hyprland = {
         enable = true;
-        withUWSM = false;
+        withUWSM = true;
       };
       plasma.enable = false;
     };
 
     binds.enable = true;
-    bluetooth.enable = false;
-    gaming.enable = false;
-    flatpak.enable = false;
+    bluetooth.enable = true;
+    gaming.enable = true;
+    flatpak.enable = true;
   };
 
   networking.networkmanager.enable = true;
-  services.tailscale.enable = false;
+  services.tailscale.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "nfs" ];
@@ -81,6 +81,21 @@
     packages = with pkgs; [
       tree
     ];
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      nvidiaSettings = false;
+    };
   };
 
   environment.systemPackages = with pkgs; [
