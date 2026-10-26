@@ -12,7 +12,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  boot.initrd.systemd.enable = true;
 
   fileSystems."/" =
     { device = "/dev/mapper/cryptroot";
