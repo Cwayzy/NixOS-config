@@ -5,7 +5,7 @@
     ../../modules/system/system.nix
   ];
 
-  networking.hostName = "C-HP";
+  networking.hostName = "C-PC";
 
   modules.system = {
     sddm = {
