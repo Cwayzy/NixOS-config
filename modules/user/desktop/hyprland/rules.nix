@@ -25,7 +25,7 @@ hl.workspace_rule({ workspace = "2", monitor = philips, default = true })
 hl.workspace_rule({
 	workspace = "special:discord",
 	layout = "master",
-	on_created_empty = "discord --ozone-platform=x11& sleep 5 && pear-desktop",
+	on_created_empty = "vesktop & sleep 5 && pear-desktop",
 })
 
 -- APPLICATION RULES --
@@ -43,7 +43,7 @@ hl.window_rule({ match = { class = "kitty" }, opacity = "0.5 0.5" })
 hl.window_rule({ match = { class = "steam" }, workspace = "3" })
 hl.window_rule({ match = { class = "heroic" }, workspace = "3" })
 hl.window_rule({
-	match = { class = "discord" },
+	match = { class = "vesktop" },
 	workspace = "special:discord",
 	opacity = "1 override",
 })

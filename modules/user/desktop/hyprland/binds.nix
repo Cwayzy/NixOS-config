@@ -127,6 +127,10 @@ hl.bind("ALT + F", hl.dsp.window.fullscreen({ mode = "maximized" }, "toggle"))
 hl.bind("code:121", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("code:122", hl.dsp.exec_cmd("playerctl previous"), { locked = true, repeating = true })
 hl.bind("code:123", hl.dsp.exec_cmd("playerctl next"), { locked = true, repeating = true })
+
+-- GLOBAL BINDS --
+hl.bind("code:90", hl.dsp.global("discord:discord-toggle-mute"))
+hl.bind("code:91", hl.dsp.global("discord:discord-toggle-go-live-streaming"))
   '';
   autoLoad = true;
 }

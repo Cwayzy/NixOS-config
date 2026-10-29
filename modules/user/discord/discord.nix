@@ -35,6 +35,8 @@ in
       (
         if cfg.package == "vesktop-x11" then
           vesktop-x11
+        else if cfg.package == "vesktop" then
+          pkgs.vesktop
         else
           pkgs.${cfg.package}.override {
             withVencord = cfg.withVencord;
