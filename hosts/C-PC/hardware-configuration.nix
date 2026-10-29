@@ -8,37 +8,43 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b830ea44-3457-4bb4-9768-9ffbb480fc73";
+    { device = "/dev/disk/by-uuid/edf67cc6-1b3c-4a1d-8d9d-26943a574fda";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/b830ea44-3457-4bb4-9768-9ffbb480fc73";
+    { device = "/dev/disk/by-uuid/edf67cc6-1b3c-4a1d-8d9d-26943a574fda";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
+  fileSystems."/home/kevin/games" =
+    { device = "/dev/disk/by-uuid/edf67cc6-1b3c-4a1d-8d9d-26943a574fda";
+      fsType = "btrfs";
+      options = [ "subvol=@games" ];
+    };
+
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/b830ea44-3457-4bb4-9768-9ffbb480fc73";
+    { device = "/dev/disk/by-uuid/edf67cc6-1b3c-4a1d-8d9d-26943a574fda";
       fsType = "btrfs";
       options = [ "subvol=@nix" ];
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/b830ea44-3457-4bb4-9768-9ffbb480fc73";
+    { device = "/dev/disk/by-uuid/edf67cc6-1b3c-4a1d-8d9d-26943a574fda";
       fsType = "btrfs";
       options = [ "subvol=@log" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/953D-F573";
+    { device = "/dev/disk/by-uuid/3281-9CFE";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };

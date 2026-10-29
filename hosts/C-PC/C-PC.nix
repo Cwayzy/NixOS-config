@@ -14,7 +14,7 @@
     };
 
     mount = {
-      enable = false;
+      enable = true;
 
       home = {
         enable = true;
@@ -39,7 +39,7 @@
 
     usb.enable = true;
     laptop-optimization.enable = false;
-    security.enable = false;
+    security.enable = true;
     fingerprint.enable = false;
     audio.enable = true;
 
