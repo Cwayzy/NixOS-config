@@ -2,7 +2,7 @@
   name = "mainBar";
   layer = "top";
   position = "top";
-  output = "eDP-1";
+  output = ["eDP-1" "HDMI-A-1"];
 
   modules-left = [
   "hyprland/workspaces"
