@@ -18,5 +18,6 @@
     ./music/music.nix
     ./thonny/thonny.nix
     ./davinci-resolve/davinci-resolve.nix
+    ./easyeffects/easyeffects.nix
   ];
  }
