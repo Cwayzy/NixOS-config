@@ -15,7 +15,8 @@
     stylix.enable = true;
     discord ={
       enable = true;
-      withVencord = true;
+      package = "vesktop";
+      # withVencord = true;
     };
     browser.enable = true;
     music.enable = true;
@@ -33,6 +34,7 @@
 	home.packages = with pkgs; [
     ytdownloader
     filezilla
+    thonny
     bootstrap-studio
   ];
 
