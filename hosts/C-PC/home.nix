@@ -16,7 +16,6 @@
     discord ={
       enable = true;
       package = "vesktop";
-      # withVencord = true;
     };
     browser.enable = true;
     music.enable = true;
