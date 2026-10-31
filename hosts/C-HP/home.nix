@@ -25,6 +25,10 @@
       enable = false;
       enableIntelGPU = true;
     };
+    easyeffects = {
+      enable = true;
+      preset = "fifine-mic";
+    };
   };
 
 	home.username = vars.username;
