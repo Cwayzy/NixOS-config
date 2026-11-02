@@ -120,8 +120,8 @@ hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 hl.bind(mod .. " + V", hl.dsp.window.float())
 hl.bind(hyper .. " + J", hl.dsp.layout("togglesplit"))
-hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }, "toggle"))
-hl.bind("ALT + F", hl.dsp.window.fullscreen({ mode = "maximized" }, "toggle"))
+hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+hl.bind("ALT + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 
 -- MEDIA --
 hl.bind("code:121", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })

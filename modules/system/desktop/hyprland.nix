@@ -26,7 +26,6 @@ in
         desktop.hyprland.enable = true; #hyprland configs
         hypr-extras = {
           enable = true;
-          hypridle.enable = true;
         };
         waybar.enable = true;
         wofi.enable = true;
