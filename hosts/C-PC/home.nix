@@ -28,6 +28,7 @@
       enable = true;
       preset = "fifine_mic";
     };
+    hypr-extras.hypridle.enable = false;
   };
 
 	home.username = vars.username;
