@@ -20,12 +20,12 @@ in
       settings = {
         ipc = "on";
         splash = false;
-        preload = [ "$HOME/.config/hypr/wallpapers/dreamy.png" ];
+        preload = [ "$HOME/.dotfiles/modules/user/hypr-extras/wallpapers/nix.png" ];
 
         wallpaper = [
           {
             monitor  = "";
-            path     = "$HOME/.config/hypr/wallpapers/dreamy.png";
+            path     = "$HOME/.dotfiles/modules/user/hypr-extras/wallpapers/nix.png";
             fit_mode = "fit";
           }
         ];

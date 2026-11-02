@@ -38,7 +38,7 @@ hl.window_rule({
 hl.window_rule({ match = { class = "^steam_app_.*$" }, workspace = "special:game silent" })
 
 hl.window_rule({ match = { class = "hyprland-run" }, move = "20 monitor_h-120", float = true })
-hl.window_rule({ match = { class = "kitty" }, opacity = "0.5 0.5" })
+hl.window_rule({ match = { class = "kitty" }, opacity = "1 1" })
 
 hl.window_rule({ match = { class = "steam" }, workspace = "3" })
 hl.window_rule({ match = { class = "heroic" }, workspace = "3" })

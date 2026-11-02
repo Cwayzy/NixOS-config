@@ -2,169 +2,134 @@
 * {
   font-family: 'SF Pro Text', 'Inter', 'Segoe UI, NotoSans Nerd Font', sans-serif;
   font-size: 13px;
-  min-height: 0;
-  padding-right: 0px;
-  padding-left: 0px;
-  padding-bottom: 0px;
-}
-
-/* --- Waybar Container --- */
-#waybar {
-  background: transparent;
-  color: #c6d0f5;
-  margin: 0px;
   font-weight: 500;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-/* --- Left Modules (Individual, Fully Rounded Blocks - With Horizontal Spacing & Simple Hover) --- */
+/* --- Bar --- */
+window#waybar {
+  background-color: @base00;
+  color: @base05;
+  border-bottom: 1px solid @base02;
+}
+
+/* --- All modules: no backgrounds, just text --- */
 #workspaces,
 #cpu,
-#memory {
-  background-color: #1a1b26;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
-  border-radius: 6px; /* These modules are always rounded */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  min-width: 0;
-  border: none;
-  /* Transition for background-color and color only */
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-#workspaces {
-  padding: 2px;
-  margin-left: 7px; /* Margin from the far left edge */
-  margin-right: 5px; /* Spacing after the workspaces module */
-}
-
-/* Simple Hover effects for individual left modules - BRIGHTER COLOR */
-#cpu:hover {
-  background-color: rgb(41, 42, 53); /* Brighter highlight */
-}
-
-#workspaces button {
-  color: #babbf1;
-  border-radius: 5px; /* Workspaces buttons are always rounded */
-  padding: 0.3rem 0.6rem;
-  background: transparent;
-  transition: all 0.2s ease-in-out;
-  border: none;
-  outline: none;
-}
-
-#workspaces button.active {
-  color: #99d1db;
-  background-color: rgba(153, 209, 219, 0.1);
-  box-shadow: inset 0 0 0 1px rgba(153, 209, 219, 0.2);
-}
-
-#workspaces button:hover {
-  background: rgb(41, 42, 53); /* Reference bright hover color */
-  color: #c6d0f5;
-}
-
-/* --- Center Module (Individual, Fully Rounded Block - With Simple Hover) --- */
-#clock {
-  background-color: #1a1b26;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px;
-  border-radius: 6px; /* This module is always rounded */
-  box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
-  min-width: 0;
-  border: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
-/* Simple Hover effect for clock module - BRIGHTER COLOR */
-#clock:hover {
-  background-color: rgba(153, 209, 219, 0.1); /* Brighter highlight */
-}
-/* --- Right Modules (Single, Seamless Bar ) --- */
+#memory,
+#clock,
 #mpris,
 #bluetooth,
 #network,
 #wireplumber,
 #battery {
-  background-color: #1a1b26;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0px; 
-  border-radius: 0;
-  box-shadow: none;
-  min-width: 0;
-  border: none;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  background: transparent;
+  color: @base05;
+  padding: 0 10px;
+  margin: 0;
+  transition: color 0.15s ease-in-out;
 }
 
-#mrpis,
-#bluetooth:hover,
-#wireplumber:hover,
-#network:hover,
-#battery:hover {
-  background-color: rgb(41, 42, 53);
+/* --- Workspaces --- */
+#workspaces {
+  padding: 0 4px;
+  margin-left: 6px;
 }
 
-#bluetooth {
-  margin-left: 0px; 
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+#workspaces button {
+  color: @base04;
+  background: transparent;
+  padding: 0 8px;
+  margin: 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
-#battery {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  margin-right: 7px;
+#workspaces button:hover {
+  background: transparent;
+  color: @base07;
 }
 
-#cpu {
-  color: #c6d0f5;
+#workspaces button.active {
+  color: @base07;
+  border-bottom: 2px solid @base0D;
+}
+
+#workspaces button.urgent {
+  color: @base08;
+  border-bottom: 2px solid @base08;
+}
+
+/* --- Dim secondary info, bright primary info --- */
+#cpu,
+#memory,
+#mpris {
+  color: @base04;
 }
 
 #clock {
-  color: #99d1db;
-  font-weight: 500;
+  color: @base07;
 }
 
-#wireplumber {
-  color: #c6d0f5;
+/* --- Hover: just brighten the text --- */
+#cpu:hover,
+#memory:hover,
+#mpris:hover,
+#bluetooth:hover,
+#network:hover,
+#wireplumber:hover,
+#battery:hover {
+  color: @base07;
 }
 
-#network {
-  color: #c6d0f5;
+/* --- States --- */
+#bluetooth {
+  color: @base04;
+  font-size: 15px;
+}
+#bluetooth.on {
+  color: @base05;
+}
+#bluetooth.connected {
+  color: @base0D;
 }
 
 #network.disconnected {
-  color: #e78284;
+  color: @base08;
 }
 
-#bluetooth {
-  color: #888888;
-  font-size: 16px;
+#wireplumber.muted {
+  color: @base04;
 }
-#bluetooth.on {
-  color: #2196f3;
-}
-#bluetooth.connected {
-  color: #99d1db;
-}
-#battery {
-  color: #99d1db;;
-}
+
 #battery.charging {
-  color: #a6d189;
+  color: @base0B;
 }
 #battery.warning:not(.charging) {
-  color: #e78284;
+  color: @base0A;
+}
+#battery.critical:not(.charging) {
+  color: @base08;
 }
 
-/* --- Tooltip Styles --- */
+#battery {
+  margin-right: 6px;
+}
+
+/* --- Tooltip --- */
 tooltip {
-  background-color: #1a1b26;
-  color: #dddddd;
-  padding: 5px 12px;
-  margin: 5px 0px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: @base01;
+  color: @base05;
+  border: 1px solid @base02;
+  border-radius: 4px;
+  padding: 4px 8px;
   font-size: 12px;
+}
+
+tooltip label {
+  color: @base05;
 }
 ''
