@@ -25,8 +25,13 @@ hl.workspace_rule({ workspace = "2", monitor = philips, default = true })
 hl.workspace_rule({
 	workspace = "special:discord",
 	layout = "master",
-	on_created_empty = "vesktop & sleep 5 && pear-desktop",
 })
+
+hl.on("workspace.created", function(ws)
+  if ws.name == "special:discord" and ws.is_empty then
+    hl.exec_cmd("vesktop & sleep 5 && pear-desktop")
+  end
+end)
 
 -- APPLICATION RULES --
 hl.window_rule({ match = { class = ".*" }, suppress_event = "maximize" })

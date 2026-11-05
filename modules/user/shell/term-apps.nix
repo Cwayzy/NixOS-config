@@ -22,6 +22,7 @@ in
       ncdu
       pwvucontrol
       poppler-utils
+      playerctl
       rsync
       mpv
       thunar

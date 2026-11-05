@@ -69,13 +69,7 @@ hl.bind(hyper .. " + V", hl.dsp.exec_cmd("easyeffects"))
 hl.bind(mod .. " + BACKSPACE", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("ALT + G", hl.dsp.exec_cmd(clip))
 
-hl.bind(hyper .. " + comma", hl.dsp.exec_cmd("wtype '<'"))
-hl.bind(hyper .. " + period", hl.dsp.exec_cmd("wtype '>'"))
-hl.bind(hyper .. " + minus", hl.dsp.exec_cmd("wtype '|'"))
 hl.bind(hyper .. " + return", hl.dsp.exec_cmd("virsh -c qemu:///system start win11"))
-
-hl.bind("code:191", hl.dsp.pass({ window = "class:^(discord)$" }))
-hl.bind("code:192", hl.dsp.pass({ window = "class:^(discord)$" }))
 
 hl.bind(hyper .. " + ESCAPE", hl.dsp.exec_cmd("shutdown now"))
 hl.bind(
@@ -127,6 +121,9 @@ hl.bind("ALT + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind("code:121", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("code:122", hl.dsp.exec_cmd("playerctl previous"), { locked = true, repeating = true })
 hl.bind("code:123", hl.dsp.exec_cmd("playerctl next"), { locked = true, repeating = true })
+
+hl.bind(mod .. " + code:122", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
+hl.bind(mod .. " + code:123", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 
 -- GLOBAL BINDS --
 hl.bind("code:90", hl.dsp.global("discord:discord-toggle-mute"))
