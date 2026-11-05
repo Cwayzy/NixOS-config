@@ -35,11 +35,14 @@
       default = "";
     };
     status-icons = {
-      playing = "";
-      paused = "";
+      playing = "";
+      paused = "";
     };
-    format = "{status_icon}  {title} - {artist} {position}/{length}" ;
-		format-paused = "{status_icon}  {title} - {artist} {position}/{length}";
+		format = "{status_icon}   {title} - {artist}";
+		format-paused = "{status_icon}   {title} - {artist}";
+    title-len = 30;
+    artist-len = 20;
+    ellipsis = "...";
 		on-click = "playerctl play-pause";
 	  on-click-right =  "playerctl next";
 		on-click-middle = "playerctl previous";
