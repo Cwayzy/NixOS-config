@@ -38,11 +38,9 @@ in
       firefox.profileNames = [ "default" ];
       hyprlock.enable = false;
       waybar.addCss = false;
-      wofi.enable = false;
       rofi.enable = false;
       mako.enable = false;
       kde.enable = false;
-      # qt.enable = false;
       };
       overlays.enable = false;
 
