@@ -53,7 +53,10 @@
 
     binds.enable = true;
     bluetooth.enable = true;
-    gaming.enable = true;
+    gaming = {
+      enable = true;
+      wheel.enable = true;
+    };
     flatpak.enable = true;
   };
 
