@@ -14,7 +14,8 @@ in
 {
   options.modules.system.gaming = {
     enable = lib.mkEnableOption "Enable gaming suite";
-    wheel.enable = lib.mkEnableOption "Sim Racing Support (T300RS + Turtle Beach Multi-Shift)";
+    racing.enable = lib.mkEnableOption "Sim Racing Support (T300RS + Turtle Beach Multi-Shift)";
+    osu.enable = lib.mkEnableOption "Osu + OpenTabletDriver";
   };
 
   config = lib.mkMerge [
@@ -39,7 +40,7 @@ in
       hardware.xone.enable = true;
     })
 
-    (lib.mkIf cfg.wheel.enable {
+    (lib.mkIf cfg.racing.enable {
       boot.extraModulePackages = [ config.boot.kernelPackages.hid-tmff2 ];
       boot.kernelModules = [ "hid-tmff-new" ];
       boot.blacklistedKernelModules = [ "hid-thrustmaster" ];
@@ -58,6 +59,14 @@ in
           RestartSec = 3;
         };
       };
+    })
+
+    (lib.mkIf cfg.osu.enable {
+      hardware.opentabletdriver = {
+        enable = true;
+        daemon.enable = true;
+      };
+      environment.systemPackages = with pkgs; [ osu-lazer-bin ];
     })
   ];
 }

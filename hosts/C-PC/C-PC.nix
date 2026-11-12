@@ -55,7 +55,8 @@
     bluetooth.enable = true;
     gaming = {
       enable = true;
-      wheel.enable = true;
+      racing.enable = true;
+      osu.enable = true;
     };
     flatpak.enable = true;
   };

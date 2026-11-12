@@ -39,7 +39,6 @@
     ytdownloader
     filezilla
     bootstrap-studio
-    osu-lazer-bin
   ];
 
   xdg.userDirs.enable = false;
