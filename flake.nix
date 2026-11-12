@@ -15,6 +15,11 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    multishift = {
+      url = "github:mtorromeo/hid-velocityone-multi-shift";
+      flake = false;
+    };
 	};
 
 	outputs = {self, nixpkgs, home-manager, stylix, ...}@inputs:

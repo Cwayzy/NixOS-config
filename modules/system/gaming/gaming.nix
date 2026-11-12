@@ -1,11 +1,20 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
   cfg = config.modules.system.gaming;
+
+  multishift = pkgs.python3Packages.buildPythonApplication {
+    pname = "hid-velocityone-multi-shift";
+    version = "0.1.0";
+    pyproject = true;
+    src = inputs.multishift;
+    build-system = [ pkgs.python3Packages.setuptools ];
+    dependencies = with pkgs.python3Packages; [ evdev hidapi ];
+  };
 in
 {
   options.modules.system.gaming = {
     enable = lib.mkEnableOption "Enable gaming suite";
-    wheel.enable = lib.mkEnableOption "Thrustmaster T300RS support (hid-tmff2 + Oversteer)";
+    wheel.enable = lib.mkEnableOption "Sim Racing Support (T300RS + Turtle Beach Multi-Shift)";
   };
 
   config = lib.mkMerge [
@@ -32,11 +41,23 @@ in
 
     (lib.mkIf cfg.wheel.enable {
       boot.extraModulePackages = [ config.boot.kernelPackages.hid-tmff2 ];
-      boot.kernelModules = [ "hid-tmff2" ];
+      boot.kernelModules = [ "hid-tmff-new" ];
       boot.blacklistedKernelModules = [ "hid-thrustmaster" ];
 
       services.udev.packages = [ pkgs.oversteer ];
       environment.systemPackages = [ pkgs.oversteer ];
+
+      hardware.uinput.enable = true;
+      systemd.services.multishift = {
+        description = "Turtle Beach VelocityOne Multi-Shift userspace driver";
+        wantedBy = [ "multi-user.target" ];
+        after = [ "systemd-udev-settle.service" ];
+        serviceConfig = {
+          ExecStart = lib.getExe multishift;
+          Restart = "always";
+          RestartSec = 3;
+        };
+      };
     })
   ];
 }
