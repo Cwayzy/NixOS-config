@@ -59,6 +59,7 @@
       osu.enable = true;
     };
     flatpak.enable = true;
+    virtualisation.enable = true;
   };
 
   networking.networkmanager.enable = true;
