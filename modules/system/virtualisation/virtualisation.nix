@@ -20,6 +20,6 @@ in
     virtualisation.spiceUSBRedirection.enable = true;
     programs.virt-manager.enable = true;
 
-    user.users.${vars.username}.extraGroups = [ "libvirtd" ];
+    users.users.${vars.username}.extraGroups = [ "libvirtd" ];
   };
 }
