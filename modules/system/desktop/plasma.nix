@@ -13,6 +13,5 @@ in
 
   flake.modules.homeManager.plasma = {
     qt.kde.settings.kwalletrc.Wallet.Enabled = false;
-    stylix.targets.qt.enable = false;
   };
 }

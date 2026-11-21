@@ -5,7 +5,6 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "hm-bak";
-      sharedModules = [ inputs.stylix.homeModules.stylix ];
     };
   };
 }

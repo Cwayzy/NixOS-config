@@ -113,10 +113,9 @@ in
 
     system.stateVersion = "26.05";
 
-    # ---- home-manager (was hosts/C-HP/home.nix) ----
     home-manager.users.${username} = { lib, pkgs, ... }: {
       imports = with self.modules.homeManager; [
-        shell
+        bash
         term-apps
         kitty
         mimeapps
