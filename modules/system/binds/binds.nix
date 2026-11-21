@@ -1,13 +1,5 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.modules.system.binds;
-in
 {
-  options.modules.system.binds = {
-    enable = lib.mkEnableOption "Enable system-wide keybinds";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.nixos.binds = {
     services.keyd = {
       enable = true;
 

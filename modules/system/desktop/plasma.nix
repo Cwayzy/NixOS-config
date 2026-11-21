@@ -1,23 +1,18 @@
-{ config, lib, pkgs, ... }:
+{ self, config, ... }:
 let
-  cfg = config.modules.system.desktop.plasma;
+  username = config.flake.meta.username;
 in
 {
-  options.modules.system.desktop.plasma = {
-    enable = lib.mkEnableOption "Enable plasma";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.nixos.plasma = { pkgs, ... }: {
     services.desktopManager.plasma6.enable = true;
     services.power-profiles-daemon.enable = false;
     xdg.portal.extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
 
-    home-manager.users.kevin = {
-      imports = [ ../../user/user.nix ];
+    home-manager.users.${username}.imports = [ self.modules.homeManager.plasma ];
+  };
 
-      modules.user = {
-        desktop.plasma.enable = true;
-      };
-    };
+  flake.modules.homeManager.plasma = {
+    qt.kde.settings.kwalletrc.Wallet.Enabled = false;
+    stylix.targets.qt.enable = false;
   };
 }

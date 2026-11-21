@@ -1,21 +1,5 @@
-{ config, lib, pkgs, ... }:
-let
-  parentCfg = config.modules.user.hypr-extras;
-
-  cfg = config.modules.user.hypr-extras.hyprlock;
-in 
 {
-  
-  options.modules.user.hypr-extras.hyprlock = {
-    enable = lib.mkOption {
-    type = lib.types.bool;
-    default = parentCfg.enable;
-    description = "Enable hyprlock";
-    };
-  };
-  
-  config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [hyprlock];
+  flake.modules.homeManager.hyprlock = {
     programs.hyprlock = {
       enable = true;
 

@@ -1,13 +1,5 @@
-{ config, lib, ... }:
-let
-  cfg = config.modules.user.shell;
-in 
 {
-  options.modules.user.shell = {
-    enable = lib.mkEnableOption "Enable shell";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.bash = {
     programs.bash = {
       enable = true;
       shellAliases = {
@@ -21,6 +13,7 @@ in
         hc = "cd $HOME/.config/hypr";
         nc = "cd $HOME/.dotfiles/";
         nrs = "sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
+        drs = "sudo nixos-rebuild switch --flake $HOME/NixOS-config/#$(hostname)";
         upgrade = "cd $HOME/.dotfiles/ && nix flake update && sudo nixos-rebuild switch --flake $HOME/.dotfiles#$(hostname)";
         garbage = "sudo nix-collect-garbage -d";
       };

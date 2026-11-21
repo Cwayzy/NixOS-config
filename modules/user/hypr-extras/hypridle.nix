@@ -1,20 +1,5 @@
-{ config, lib, pkgs, ... }:
-let
-  parentCfg = config.modules.user.hypr-extras;
-
-  cfg = config.modules.user.hypr-extras.hypridle;
-in 
 {
-  options.modules.user.hypr-extras.hypridle = {
-    enable = lib.mkOption {
-    type = lib.types.bool;
-    default = parentCfg.enable;
-    description = "Enable hypridle";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
-    home.packages = with pkgs;[hypridle];
+  flake.modules.homeManager.hypridle = {
     services.hypridle = {
       enable = true;
       settings = {

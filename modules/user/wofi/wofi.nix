@@ -1,17 +1,9 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.modules.user.wofi;
-in 
 {
-  options.modules.user.wofi = {
-    enable = lib.mkEnableOption "Enable wofi";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.wofi = {
     programs.wofi = {
       enable = true;
-      settings = import ./config.nix;
-      style = import ./style.nix;
+      settings = import ./_config.nix;
+      style = import ./_style.nix;
     };
   };
 }

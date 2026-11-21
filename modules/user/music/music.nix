@@ -1,16 +1,8 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.modules.user.music;
-in
 {
-  options.modules.user.music = {
-    enable = lib.mkEnableOption "Enable music apps";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.music = { pkgs, ...}: {
     home.packages = with pkgs; [
-      spotify
-      pear-desktop
+        spotify
+        pear-desktop
     ];
   };
 }

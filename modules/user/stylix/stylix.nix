@@ -1,13 +1,5 @@
-{ config, lib, pkgs, ...}:
-let
-  cfg = config.modules.user.stylix;
-in 
 {
-  options.modules.user.stylix = {
-    enable = lib.mkEnableOption "Enable stylix";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.stylix = { pkgs, ... }: {
     stylix = {
       enable = true;
       polarity = "dark";

@@ -1,19 +1,5 @@
-{ config, lib, ... }:
-let
-  parentCfg = config.modules.user.hypr-extras;
-
-  cfg = config.modules.user.hypr-extras.files;
-in 
 {
-  options.modules.user.hypr-extras.files = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = parentCfg.enable;
-      description = "Enable extra files";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.hypr-files = {
     xdg.configFile."hypr/scripts" = {
       source = ./scripts;
       recursive = true;

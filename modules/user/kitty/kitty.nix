@@ -1,13 +1,5 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.modules.user.kitty;
-in 
 {
-  options.modules.user.kitty = {
-    enable = lib.mkEnableOption "Enable kitty";
-  };
-  
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.kitty = {
     programs.kitty = {
       enable = true;
       settings = {

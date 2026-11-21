@@ -1,13 +1,9 @@
-{ config, lib, pkgs, vars, ...}:
+{ config, ... }:
 let
-  cfg = config.modules.system.virtualisation;
+  username = config.flake.meta.username;
 in
 {
-  options.modules.system.virtualisation = {
-    enable = lib.mkEnableOption "libvirt/KVM virtual machine";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.nixos.virtualisation = { pkgs, ... }: {
     virtualisation.libvirtd = {
       enable = true;
       qemu = {
@@ -20,6 +16,6 @@ in
     virtualisation.spiceUSBRedirection.enable = true;
     programs.virt-manager.enable = true;
 
-    users.users.${vars.username}.extraGroups = [ "libvirtd" ];
+    users.users.${username}.extraGroups = [ "libvirtd" ];
   };
 }

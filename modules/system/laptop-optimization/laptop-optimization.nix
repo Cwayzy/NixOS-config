@@ -1,15 +1,6 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.modules.system.laptop-optimization;
-in
 {
-  options.modules.system.laptop-optimization = {
-      enable = lib.mkEnableOption "Enable various laptop optimizations";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.nixos.laptop-optimization = {
     hardware.cpu.intel.updateMicrocode = true;
-
     services.thermald.enable = true;
 
     services.tlp = {

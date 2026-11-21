@@ -1,13 +1,5 @@
-{ config, lib, pkgs, ...}:
-let
-  cfg = config.modules.system.audio;
-in
 {
-  options.modules.system.audio = {
-    enable = lib.mkEnableOption "Pipewire/Wireplumber audio stack";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.nixos.audio = { pkgs, ... }: {
     security.rtkit.enable = true;
 
     services.pipewire = {

@@ -1,33 +1,29 @@
-{ config, lib, pkgs, vars, ... }:
+{ config, ... }:
 let
-  cfg = config.modules.system.sddm;
-
-  hyprlandEnabled = config.modules.system.desktop.hyprland.enable or false;
-  plasmaEnabled = config.modules.system.desktop.plasma.enable or false;
-
-  defaultSession =
-    if hyprlandEnabled then "hyprland"
-    else if plasmaEnabled then "plasma"
-    else null;
-in 
+  username = config.flake.meta.username;
+in
 {
-  options.modules.system.sddm = {
-    enable = lib.mkEnableOption "SDDM display manager";
-    autologin = lib.mkEnableOption "SDDM autologin";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.nixos.sddm = {
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
     };
-
-    services.displayManager.autoLogin = lib.mkIf cfg.autologin {
-      enable = true;
-      user = vars.username;
-    };
-
-    services.displayManager.defaultSession =
-    lib.mkIf (cfg.autologin && defaultSession != null) defaultSession;
   };
+
+  flake.modules.nixos.sddm-autologin = { config, lib, ... }:
+    let
+      defaultSession =
+        if config.programs.hyprland.enable then "hyprland"
+        else if config.services.desktopManager.plasma6.enable then "plasma"
+        else null;
+    in
+    {
+      services.displayManager.autoLogin = {
+        enable = true;
+        user = username;
+      };
+
+      services.displayManager.defaultSession =
+        lib.mkIf (defaultSession != null) defaultSession;
+    };
 }

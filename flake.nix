@@ -1,64 +1,31 @@
 {
-	description = "NixOS Hyprland";
+  description = "Cwayzy NixOS Configuration";
 
-	inputs = {
-		nixpkgs.url = "nixpkgs/nixos-unstable";
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+    import-tree.url = "github:vic/import-tree";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     multishift = {
       url = "github:mtorromeo/hid-velocityone-multi-shift";
       flake = false;
     };
-	};
+  };
 
-	outputs = {self, nixpkgs, home-manager, stylix, ...}@inputs:
-    let 
-      lib = nixpkgs.lib;
-      system = "x86_64-linux";
-
-      pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-
-      vars = {
-        username = "kevin";
-        hosts = [ "C-PC" "C-HP" ];
-      };
-
-      mkHost = hostName: lib.nixosSystem {
-        inherit system pkgs;
-        specialArgs = { inherit inputs vars hostName; };
-        modules = [ 
-          ./hosts/${hostName}/${hostName}.nix
-          home-manager.nixosModules.home-manager
-          stylix.nixosModules.stylix
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "hm-bak";
-              extraSpecialArgs = { inherit inputs vars hostName; };
-              sharedModules = [ stylix.homeModules.stylix ];
-              users.${vars.username} = import ./hosts/${hostName}/home.nix;
-            };
-          }
-        ];
-      };
-
-    in
-    { 
-		  nixosConfigurations = lib.genAttrs vars.hosts mkHost;
-	  };
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; }
+      (inputs.import-tree ./modules);
 }

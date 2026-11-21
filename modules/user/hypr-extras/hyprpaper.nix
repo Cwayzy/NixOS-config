@@ -1,20 +1,5 @@
-{ config, lib, pkgs, ... }:
-let
-  parentCfg = config.modules.user.hypr-extras;
-
-  cfg = config.modules.user.hypr-extras.hyprpaper;
-in 
 {
-  options.modules.user.hypr-extras.hyprpaper = {
-    enable = lib.mkOption {
-    type = lib.types.bool;
-    default = parentCfg.enable;
-    description = "Enable hyprpaper";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [hyprpaper];
+  flake.modules.homeManager.hyprpaper = {
     services.hyprpaper = {
       enable = true;
       settings = {

@@ -1,25 +1,17 @@
-{ config, lib, ... }:
-let
-  cfg = config.modules.user.desktop.hyprland;
-in 
 {
-  options.modules.user.desktop.hyprland = {
-    enable = lib.mkEnableOption "enable hyprland";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.hyprland = {
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "lua";
 
-      extraLuaFiles   = {
-        autostart     = import ./autostart.nix;
-        binds         = import ./binds.nix;
-        input         = import ./input.nix;
-        monitors      = import ./monitors.nix;
-        perms         = import ./perms.nix;
-        rules         = import ./rules.nix;
-        style         = import ./style.nix;
+      extraLuaFiles = {
+        autostart = import ./_autostart.nix;
+        binds     = import ./_binds.nix;
+        input     = import ./_input.nix;
+        monitors  = import ./_monitors.nix;
+        perms     = import ./_perms.nix;
+        rules     = import ./_rules.nix;
+        style     = import ./_style.nix;
       };
     };
   };

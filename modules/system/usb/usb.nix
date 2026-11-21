@@ -1,13 +1,5 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.modules.system.usb;
-in
 {
-  options.modules.system.usb = {
-    enable = lib.mkEnableOption "removable USB automounting (udisks2 + gvfs)";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.nixos.usb = { pkgs, ... }: {
     services.udisks2.enable = true;
     services.gvfs.enable = true;
 

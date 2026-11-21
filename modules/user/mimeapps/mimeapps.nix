@@ -1,22 +1,14 @@
-{ config, lib, ... }:
-let
-  cfg = config.modules.user.mimeapps;
-in
 {
-  options.modules.user.mimeapps = {
-    enable = lib.mkEnableOption "Enable mimeapps";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.mimeapps = {
     xdg.mimeApps = {
       enable = true;
 
       defaultApplications = {
-        "text/html" = "zen-beta.desktop";
-        "x-scheme-handler/http" = "zen-beta.desktop";
-        "x-scheme-handler/https" = "zen-beta.desktop";
-        "x-scheme-handler/about" = "zen-beta.desktop";
-        "x-scheme-handler/unknown" = "zen-beta.desktop";
+        "text/html" = "brave.desktop";
+        "x-scheme-handler/http" = "brave.desktop";
+        "x-scheme-handler/https" = "brave.desktop";
+        "x-scheme-handler/about" = "brave.desktop";
+        "x-scheme-handler/unknown" = "brave.desktop";
 
         "image/png" = "imv.desktop";
         "image/jpeg" = "imv.desktop";

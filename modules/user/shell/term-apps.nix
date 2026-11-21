@@ -1,13 +1,5 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.modules.user.term-apps;
-in 
 {
-  options.modules.user.term-apps = {
-    enable = lib.mkEnableOption "Enable term-apps";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.term-apps = { pkgs, ... }: {
     home.packages = with pkgs; [
       aerc
       ani-cli

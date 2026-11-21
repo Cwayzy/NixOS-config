@@ -1,13 +1,5 @@
-{config, lib, pkgs, ... }:
-let
-  cfg = config.modules.system.security;
-in
 {
-  options.modules.system.security = {
-    enable = lib.mkEnableOption "Enable security";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.nixos.security = { pkgs, ... }: {
     security.pam.services.hyprlock = {};
     security.polkit.enable = true;
     services.gnome.gnome-keyring.enable = true;

@@ -1,16 +1,8 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.modules.user.mako;
-in 
 {
-  options.modules.user.mako = {
-    enable = lib.mkEnableOption "Enable mako";
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.mako = {
     services.mako = {
       enable = true;
-      settings = import ./config.nix;
+      settings = import ./_config.nix;
     };
   };
 }

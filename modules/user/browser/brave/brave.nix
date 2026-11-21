@@ -1,18 +1,5 @@
-{ config, lib, pkgs, ... }:
-let
-  parentCfg = config.modules.user.browser;
-  cfg = config.modules.user.browser.brave;
-in
 {
-  options.modules.user.browser.brave = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = parentCfg.enable;
-      description = "Enable brave";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+  flake.modules.homeManager.brave = { pkgs, ... }: {
     programs.chromium = {
       enable = true;
       package = pkgs.brave;
