@@ -143,7 +143,8 @@ in
       home.packages = with pkgs; [
         ytdownloader
         filezilla
-        thonny
+        gimp
+        audacity
         bootstrap-studio
       ];
 
