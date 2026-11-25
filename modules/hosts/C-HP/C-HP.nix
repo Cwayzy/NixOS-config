@@ -33,6 +33,7 @@ in
       gaming
       osu
       flatpak
+      docker
     ]) ++ [ ./_hardware-configuration.nix ];
 
     networking.hostName = "C-HP";
