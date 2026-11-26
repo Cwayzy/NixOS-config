@@ -23,6 +23,10 @@
       url = "github:mtorromeo/hid-velocityone-multi-shift";
       flake = false;
     };
+    lazyvim-starter = {
+      url = "github:LazyVim/starter";
+      flake = false;
+    };
   };
 
   outputs = inputs:

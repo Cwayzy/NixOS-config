@@ -118,6 +118,7 @@ in
         bash
         term-apps
         kitty
+        nvim
         mimeapps
         fastfetch
         stylix
@@ -132,7 +133,7 @@ in
         mount-home-link
         mount-mods-link
         mount-tesk-link
-
+        
         python
       ];
 
@@ -148,7 +149,6 @@ in
         gimp
         audacity
         bootstrap-studio
-        thonny
       ];
 
       xdg.userDirs.enable = false;
