@@ -33,7 +33,6 @@ in
       gaming
       osu
       flatpak
-      docker
     ]) ++ [ ./_hardware-configuration.nix ];
 
     networking.hostName = "C-HP";
@@ -133,6 +132,8 @@ in
         mount-home-link
         mount-mods-link
         mount-tesk-link
+
+        python
       ];
 
       services.easyeffects.preset = "fifine-mic";
@@ -147,6 +148,7 @@ in
         gimp
         audacity
         bootstrap-studio
+        thonny
       ];
 
       xdg.userDirs.enable = false;
